@@ -17,9 +17,35 @@ class StadiumController extends Controller {
     $this->middleware('auth');
   }
 
+  public function edit(){
+
+    $stadium = Stadium::find(1);
+
+    return view('stadium.edit', compact('stadium'));
+  }
+
+  public function update(Request $request, $id)
+  {
+    $ticket = new Stadium();
+    $data = $this->validate($request, [
+//      'description'=>'required',
+//      'title'=> 'required'
+    ]);
+
+    $ticket->landing_image = $request['landing_image'];
+    $ticket->g_map_key = $request['g_map_key'];
+    $ticket->logo = $request['logo'];
+    $ticket->background_description = $request['background_description'];
+    $ticket->description = $request['description'];
+    $ticket->hours = $request['hours'];
+    $ticket->location = $request['location'];
+    $ticket->gallery = $request['gallery'];
+
+    return redirect('/home')->with('success', 'Enregistré');
+  }
 
   public function create() {
-    return view('user.create');
+    return view('stadium.create');
   }
 
   /**
@@ -48,33 +74,4 @@ class StadiumController extends Controller {
     return redirect('/admin')->with('success', 'Enregistré');
 
   }
-
-  public function edit(){
-
-    $ticket = Stadium::find(1);
-
-    return view('user.edit', compact('ticket', 'id'));
-  }
-
-  public function update(Request $request, $id)
-  {
-    $ticket = new Stadium();
-    $data = $this->validate($request, [
-//      'description'=>'required',
-//      'title'=> 'required'
-    ]);
-
-    $ticket->landingg_image = $request['landing_image'];
-    $ticket->g_map_key = $request['g_map_key'];
-    $ticket->logo = $request['logo'];
-    $ticket->background_description = $request['background_description'];
-    $ticket->description = $request['description'];
-    $ticket->hours = $request['hours'];
-    $ticket->location = $request['location'];
-    $ticket->gallery = $request['gallery'];
-
-    return redirect('/home')->with('success', 'Enregistré');
-  }
-
-
 }

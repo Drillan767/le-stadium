@@ -22,6 +22,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "babel-preset-react": "^6.24.1"
+        "babel-preset-react": "^6.24.1",
+        "materialize-css": "^1.0.0-alpha.4"
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="row">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -12,44 +12,79 @@
             </div><br />
         @endif
         <div class="row">
-            {!! Form::open(['url' => '/admin/edit', 'files' => true]) !!}
-                <div class="form-group">
-                    <label for="landing_image">Image d'accueil</label>
-                    <input type="file" class="form-control" name="landing_image"/>
-                    <span>{{ $stadium->landing_image }}</span>
+            {!! Form::open(['url' => '/admin/edit', 'files' => true, 'class' => 'col s12']) !!}
+                <div class="row">
+                    <div class="file-field input-field col s6 offset-s3">
+                        <div class="btn">
+                            <span>Fichier</span>
+                            <input type="file" name="landing_image">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Image d'accueil">
+                            <span class="helper-text" data-error="wrong" data-success="right">{{ basename($stadium->landing_image) }}</span>
+                        </div>
+                    </div>
+                    <div class="input-field col s6 offset-s3">
+                        <input id="g_map_key" name="g_map_key" type="text" class="validate" value="{{ $stadium->g_map_key }}">
+                        <label for="g_map_key">Clé pour Google Maps</label>
+                    </div>
+                    <div class="file-field input-field col s6 offset-s3">
+                        <div class="btn">
+                            <span>Fichier</span>
+                            <input type="file" name="logo">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Logo" >
+                            <span class="helper-text" data-error="wrong" data-success="right">{{ basename($stadium->logo) }}</span>
+                        </div>
+                    </div>
+
+                    <div class="file-field input-field col s6 offset-s3">
+                        <div class="btn">
+                            <span>Fichier</span>
+                            <input type="file" name="background_description">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Image de la description">
+                            <span class="helper-text" data-error="wrong" data-success="right">{{ basename($stadium->background_description) }}</span>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s6 offset-s3">
+                        <input id="description" name="description" type="text" class="validate" value="{{ $stadium->description }}">
+                        <label for="description">Description</label>
+                    </div>
+
+                    <div class="input-field col s6 offset-s3">
+                        <input id="hours" type="text" name="hours" class="validate" value="{{ $stadium->hours }}">
+                        <label for="hours">Horaires</label>
+                    </div>
+
+                    <div class="input-field col s6 offset-s3">
+                        <input id="location" name="location" type="text" class="validate" value="{{ $stadium->location }}">
+                        <label for="location">Adresse</label>
+                    </div>
+
+                    <div class="file-field input-field col s6 offset-s3">
+                        <div class="btn">
+                            <span>Fichiers</span>
+                            <input type="file" name="gallery[]" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Uploader plusieurs images">
+                            <span class="helper-text" data-error="wrong" data-success="right">
+                                @foreach(unserialize($stadium->gallery) as $picture)
+                                    <li>{{ basename($picture) }}</li>
+                                @endforeach
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="g_map_key">Clé pour Google Maps</label>
-                    <input type="text" class="form-control" name="g_map_key" value="{{ $stadium->g_map_key }}"/>
+                <div class="center">
+                    <button type="submit" class="btn btn-primary">Sauvegarder</button>
                 </div>
-                <div class="form-group">
-                    <label for="logo">Logo</label>
-                    <input type="file" class="form-control" name="logo"/>
-                    <span>{{ $stadium->logo }}</span>
-                </div>
-                <div class="form-group">
-                    <label for="background_description">Image de la description</label>
-                    <input type="file" class="form-control" name="background_description"/>
-                    <span>{{ $stadium->background_description }}</span>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input type="text" class="form-control" name="description" value="{{ $stadium->description }}"/>
-                </div>
-                <div class="form-group">
-                    <label for="hours">Horaires</label>
-                    <input type="text" class="form-control" name="hours" value="{{ $stadium->hours }}"/>
-                </div>
-                <div class="form-group">
-                    <label for="location">Adresse</label>
-                    <input type="text" class="form-control" name="location" value="{{ $stadium->location }}"/>
-                </div>
-                <div class="form-group">
-                    <label for="description">Gallerie</label>
-                    <textarea cols="5" rows="5" class="form-control" name="gallery">{{ $stadium->gallery }}</textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
+
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection

@@ -13,36 +13,43 @@ class StadiumController extends Controller {
    *
    * @return void
    */
-  public function __construct()
-  {
+  public function __construct() {
     $this->middleware('auth');
   }
 
-  public function edit(){
+  public function edit() {
 
     $stadium = Stadium::find(1);
 
-    if(!$stadium) {
-        return redirect('/create');
+    if (!$stadium) {
+      return redirect('/create');
     }
 
     return view('stadium.edit', compact('stadium'));
   }
 
-  public function update(Request $request){
+  public function update(Request $request) {
 
     $data = [
-        'g_map_key' => $request['g_map_key'],
-        'description' => $request['description'],
-        'hours' => $request['hours'],
-        'location' => $request['location'],
-        'gallery' => $request['gallery'],
+      'g_map_key' => $request['g_map_key'],
+      'description' => $request['description'],
+      'hours' => $request['hours'],
+      'location' => $request['location'],
+      'gallery' => $request['gallery'],
     ];
 
-    foreach(['landing_page', 'logo', 'background_description'] as $field) {
-        if(!empty($request[$field])) {
-            $data[$field] = $this->uploadFile($request->$field, $field);
-        }
+    if(!empty($request->gallery)) {
+      $gallery = [];
+      foreach ($request->gallery as $file) {
+        $gallery[] = $this->uploadFile($file, 'gallery');
+      }
+      $data['gallery'] = serialize($gallery);
+    }
+
+    foreach (['landing_page', 'logo', 'background_description'] as $field) {
+      if (!empty($request->$field)) {
+        $data[$field] = $this->uploadFile($request->$field, $field);
+      }
     }
 
     Stadium::find(1)->update($data);
@@ -59,6 +66,7 @@ class StadiumController extends Controller {
    * @return \Illuminate\Http\RedirectResponse
    */
   public function store(Request $request) {
+
 
     $stadium = new Stadium();
     $data = $this->validate($request, [
@@ -82,8 +90,8 @@ class StadiumController extends Controller {
 
   private function uploadFile($file, $destination) {
 
-      $filename = $file->getClientOriginalName();
-      $path = $file->storeAs('public/' . $destination, $filename);
-      return '/' . str_replace('public', 'storage', $path);
+    $filename = $file->getClientOriginalName();
+    $path = $file->storeAs('public/' . $destination, $filename);
+    return '/' . str_replace('public', 'storage', $path);
   }
 }

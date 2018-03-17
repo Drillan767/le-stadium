@@ -437,8 +437,7 @@ module.exports = checkPropTypes;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-__webpack_require__(25);
-module.exports = __webpack_require__(26);
+module.exports = __webpack_require__(25);
 
 
 /***/ }),
@@ -17811,12 +17810,6 @@ module.exports = camelize;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \nvar _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if (\"value\" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };\n        ^\n      Invalid CSS after \"var _get\": expected \"{\", was \"= function get(obje\"\n      in /home/jaeger767/PhpstormProjects/le-stadium/node_modules/materialize-css/dist/js/materialize.js (line 6, column 10)\n    at runLoaders (/home/jaeger767/PhpstormProjects/le-stadium/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/jaeger767/PhpstormProjects/le-stadium/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/jaeger767/PhpstormProjects/le-stadium/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/home/jaeger767/PhpstormProjects/le-stadium/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/home/jaeger767/PhpstormProjects/le-stadium/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.done [as callback] (/home/jaeger767/PhpstormProjects/le-stadium/node_modules/neo-async/async.js:7921:18)\n    at options.error (/home/jaeger767/PhpstormProjects/le-stadium/node_modules/node-sass/lib/index.js:294:32)");
 
 /***/ })
 /******/ ]);

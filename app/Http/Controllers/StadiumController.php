@@ -35,10 +35,9 @@ class StadiumController extends Controller {
       'description' => $request['description'],
       'hours' => $request['hours'],
       'location' => $request['location'],
-      'gallery' => $request['gallery'],
     ];
 
-    if(!empty($request->gallery)) {
+    if($request->gallery) {
       $gallery = [];
       foreach ($request->gallery as $file) {
         $gallery[] = $this->uploadFile($file, 'gallery');

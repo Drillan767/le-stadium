@@ -39,16 +39,10 @@ class StadiumController extends Controller {
         'gallery' => $request['gallery'],
     ];
 
-    if(!empty($request['landing_image'])) {
-        $data['landing_image'] = $this->uploadFile($request->landing_image, 'landing');
-    }
-
-    if(!empty($request['logo'])) {
-      $data['logo'] = $this->uploadFile($request->logo, 'logo');
-    }
-
-    if(!empty($request['background_description'])) {
-      $data['background_description'] = $this->uploadFile($request->background_description, 'background');
+    foreach(['landing_page', 'logo', 'background_description'] as $field) {
+        if(!empty($request[$field])) {
+            $data[$field] = $this->uploadFile($request->$field, $field);
+        }
     }
 
     Stadium::find(1)->update($data);
@@ -72,10 +66,10 @@ class StadiumController extends Controller {
 //      'title'=> 'required'
     ]);
 
-    $stadium->landing_image = $this->uploadFile($request->landing_image, 'landing');
+    $stadium->landing_image = $this->uploadFile($request->landing_image, 'landing_page');
     $stadium->g_map_key = $request['g_map_key'];
     $stadium->logo = $this->uploadFile($request->logo, 'logo');
-    $stadium->background_description = $this->uploadFile($request->background_description, 'description');
+    $stadium->background_description = $this->uploadFile($request->background_description, 'background_description');
     $stadium->description = $request['description'];
     $stadium->hours = $request['hours'];
     $stadium->location = $request['location'];

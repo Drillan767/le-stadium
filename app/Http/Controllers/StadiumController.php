@@ -21,6 +21,10 @@ class StadiumController extends Controller {
 
     $stadium = Stadium::find(1);
 
+    if(!$stadium) {
+        return redirect('/create');
+    }
+
     return view('stadium.edit', compact('stadium'));
   }
 
@@ -60,7 +64,7 @@ class StadiumController extends Controller {
 //      'title'=> 'required'
     ]);
 
-    $ticket->landingg_image = $request['landing_image'];
+    $ticket->landing_image = $request['landing_image'];
     $ticket->g_map_key = $request['g_map_key'];
     $ticket->logo = $request['logo'];
     $ticket->background_description = $request['background_description'];

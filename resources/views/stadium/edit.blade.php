@@ -12,12 +12,11 @@
             </div><br />
         @endif
         <div class="row">
-            <form method="post" action="{{action('StadiumController@update')}}" >
-                {{csrf_field()}}
-                <input name="_method" type="hidden" value="PATCH">
+            {!! Form::open(['url' => '/admin/edit', 'files' => true]) !!}
                 <div class="form-group">
                     <label for="landing_image">Image d'accueil</label>
-                    <input type="text" class="form-control" name="landing_image" value="{{ $stadium->landing_image }}"/>
+                    <input type="file" class="form-control" name="landing_image"/>
+                    <span>{{ $stadium->landing_image }}</span>
                 </div>
                 <div class="form-group">
                     <label for="g_map_key">Clé pour Google Maps</label>
@@ -25,11 +24,13 @@
                 </div>
                 <div class="form-group">
                     <label for="logo">Logo</label>
-                    <input type="text" class="form-control" name="logo" value="{{ $stadium->logo }}"/>
+                    <input type="file" class="form-control" name="logo"/>
+                    <span>{{ $stadium->logo }}</span>
                 </div>
                 <div class="form-group">
                     <label for="background_description">Image de la description</label>
-                    <input type="text" class="form-control" name="background_description" value="{{ $stadium->background_description }}"/>
+                    <input type="file" class="form-control" name="background_description"/>
+                    <span>{{ $stadium->background_description }}</span>
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>

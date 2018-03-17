@@ -12,7 +12,7 @@
             </div><br />
         @endif
         <div class="row">
-            {!! Form::open(['url' => '/admin/create']) !!}
+            {!! Form::open(['url' => '/admin/create', 'files' => true]) !!}
                 <div class="form-group">
                     <label for="landing_image">Image d'accueil</label>
                     <input type="text" class="form-control" name="landing_image"/>

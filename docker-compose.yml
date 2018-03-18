@@ -6,6 +6,8 @@ services:
       - .env
     depends_on:
       - db
+    ports:
+      - '80:80'
   db:
     image: mariadb:latest
     restart: always
@@ -13,4 +15,4 @@ services:
       MYSQL_ROOT_PASSWORD: 3p1c_P@ssw0rd
       MYSQL_DATABASE: stadium
       MYSQL_USER: stadium
-      MYSQL_PASSWORD: RedKhezuHR5
+      MYSQL_PASSWORD: #blup

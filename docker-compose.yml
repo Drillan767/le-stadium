@@ -3,6 +3,7 @@ services:
   web:
     build: .
     env_file:
+#      - .env
       - .env.docker
     depends_on:
       - db

@@ -1,7 +1,7 @@
 FROM php:7.0-apache
 WORKDIR /var/www/html
 ADD --chown=www-data:www-data  . /var/www/html
-RUN apt-get update && apt-get install curl gnupg libmcrypt-dev -y
+RUN apt-get update && apt-get install curl gnupg libmcrypt-dev zip unzip -y
 RUN docker-php-ext-install mcrypt pdo_mysql
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer

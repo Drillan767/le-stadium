@@ -22,7 +22,7 @@ class StadiumController extends Controller {
     $stadium = Stadium::find(1);
 
     if (!$stadium) {
-      return redirect('/create');
+      return redirect('/admin/create');
     }
 
     return view('stadium.edit', compact('stadium'));

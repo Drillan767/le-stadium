@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Stadium from './components'
 
 ReactDOM.render(
-  <h1>Wesh bonjour</h1>,
+  <Stadium />,
   document.getElementById('index')
 );

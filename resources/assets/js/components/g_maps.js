@@ -17,3 +17,6 @@ export default class Gmaps extends React.Component {
         );
     }
 }
+
+// https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuy9KEifq9EcRJz0TUVFvvZ4&key=...
+

@@ -37,7 +37,7 @@ class StadiumController extends Controller {
       'location' => $request['location'],
     ];
 
-    if($request->gallery) {
+    if ($request->gallery) {
       $gallery = [];
       foreach ($request->gallery as $file) {
         $gallery[] = $this->uploadFile($file, 'gallery');
@@ -80,10 +80,14 @@ class StadiumController extends Controller {
     $stadium->description = $request['description'];
     $stadium->hours = $request['hours'];
     $stadium->location = $request['location'];
-    $stadium->gallery = $request['gallery'];
 
+    $gallery = [];
+    foreach ($request['gallery'] as $image) {
+      $gallery[] =$this->uploadFile($image, 'gallery');
+    }
+
+    $stadium->gallery = serialize($gallery);
     $stadium->save();
-
     return redirect('/admin')->with('success', 'Enregistré');
   }
 

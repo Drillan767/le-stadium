@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="row">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -11,42 +11,73 @@
                 </ul>
             </div><br />
         @endif
-        <div class="row">
-            {!! Form::open(['url' => '/admin/create', 'files' => true]) !!}
-                <div class="form-group">
-                    <label for="landing_image">Image d'accueil</label>
-                    <input type="text" class="form-control" name="landing_image"/>
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+        {!! Form::open(['url' => '/admin/create', 'files' => true, 'class' => 'col s12']) !!}
+            <div class="file-field input-field col s6 offset-s3">
+                <div class="btn">
+                    <span>Fichier</span>
+                    <input type="file" name="landing_image">
                 </div>
-                <div class="form-group">
-                    <label for="g_map_key">Clé pour Google Maps</label>
-                    <input type="text" class="form-control" name="g_map_key"/>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Image d'accueil" />
                 </div>
-                <div class="form-group">
-                    <label for="logo">Logo</label>
-                    <input type="text" class="form-control" name="logo"/>
+            </div>
+            <div class="input-field col s6 offset-s3">
+                <input id="g_map_key" name="g_map_key" type="text" class="validate" />
+                <label for="g_map_key">Clé pour Google Maps</label>
+            </div>
+            <div class="file-field input-field col s6 offset-s3">
+                <div class="btn">
+                    <span>Fichier</span>
+                    <input type="file" name="logo" />
                 </div>
-                <div class="form-group">
-                    <label for="background_description">Image de la description</label>
-                    <input type="text" class="form-control" name="background_description"/>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Logo" />
                 </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input type="text" class="form-control" name="description"/>
+            </div>
+
+            <div class="file-field input-field col s6 offset-s3">
+                <div class="btn">
+                    <span>Fichier</span>
+                    <input type="file" name="background_description">
                 </div>
-                <div class="form-group">
-                    <label for="hours">Horaires</label>
-                    <input type="text" class="form-control" name="hours"/>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Image de la description" />
                 </div>
-                <div class="form-group">
-                    <label for="location">Adresse</label>
-                    <input type="text" class="form-control" name="location"/>
+            </div>
+
+            <div class="input-field col s6 offset-s3">
+                <input id="description" name="description" type="text" class="validate" />
+                <label for="description">Description</label>
+            </div>
+
+            <div class="input-field col s6 offset-s3">
+                <input id="hours" type="text" name="hours" class="validate" />
+                <label for="hours">Horaires</label>
+            </div>
+
+            <div class="input-field col s6 offset-s3">
+                <input id="location" name="location" type="text" class="validate" />
+                <label for="location">Adresse</label>
+            </div>
+
+            <div class="file-field input-field col s6 offset-s3">
+                <div class="btn">
+                    <span>Fichiers</span>
+                    <input type="file" name="gallery[]" multiple />
                 </div>
-                <div class="form-group">
-                    <label for="description">Gallerie</label>
-                    <textarea cols="5" rows="5" class="form-control" name="gallery"></textarea>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Uploader plusieurs images">
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
-            {!! Form::close() !!}
-        </div>
+            </div>
+            <div class="col s6 input-field center">
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </div>
+
+        {!! Form::close() !!}
     </div>
 @endsection

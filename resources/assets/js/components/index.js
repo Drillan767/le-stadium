@@ -1,7 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 import 'materialize-css/dist/js/materialize.min';
-import Gmaps from './g_maps';
+import Header from './header';
+import Landing from './landing';
+import Maps from './g_maps';
 import Footer from './footer';
 
 export default class Stadium extends React.Component {
@@ -25,7 +27,9 @@ export default class Stadium extends React.Component {
         return (
             data !== null &&
             <div>
-                <Gmaps gmapskey={data.g_map_key} />
+                <Header />
+                <Landing />
+                <Maps gmapskey={data.g_map_key} />
                 <Footer />
             </div>
         )

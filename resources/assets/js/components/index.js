@@ -14,7 +14,6 @@ export default class Stadium extends React.Component {
         let self = this;
         $.getJSON(window.location.origin + '/data', function(data) {
             self.setState({data: data});
-            $('<script async src="https://maps.googleapis.com/maps/api/js?key='+ data.g_map_key +'" ></script>').appendTo('head');
         });
 
     }
@@ -23,13 +22,14 @@ export default class Stadium extends React.Component {
         const { data } = this.state;
         return (
             data !== null &&
-                <Gmaps
-                    isMarkerShown
-                    googleMapURL="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuy9KEifq9EcRJz0TUVFvvZ4"
-                    loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `400px` }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
-                />
+            <iframe
+                width="100%"
+                height="300px"
+                frameBorder="0"
+                // style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuy9KEifq9EcRJz0TUVFvvZ4&key=AIzaSyDZA_13YpCObAN73_Yf426lRZmVArddb9g"
+                allowFullScreen
+            />
         )
     }
 }

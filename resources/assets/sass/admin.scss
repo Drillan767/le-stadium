@@ -1,9 +1,10 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 @import "~materialize-css/dist/css/materialize.min.css";
+@import "variables";
 
 nav, .btn {
-  background-color: #88c13d;
+  background-color: $green;
 }
 
 .row {

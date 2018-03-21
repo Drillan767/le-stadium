@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
+import 'materialize-css/dist/js/materialize.min';
 import Gmaps from './g_maps';
+import Footer from './footer';
 
 export default class Stadium extends React.Component {
     constructor(props) {
@@ -22,14 +24,10 @@ export default class Stadium extends React.Component {
         const { data } = this.state;
         return (
             data !== null &&
-            <iframe
-                width="100%"
-                height="300px"
-                frameBorder="0"
-                // style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuy9KEifq9EcRJz0TUVFvvZ4&key=AIzaSyDZA_13YpCObAN73_Yf426lRZmVArddb9g"
-                allowFullScreen
-            />
+            <div>
+                <Gmaps gmapskey={data.g_map_key} />
+                <Footer />
+            </div>
         )
     }
 }

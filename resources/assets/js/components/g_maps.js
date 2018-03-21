@@ -1,22 +1,18 @@
 import React from 'react';
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
-export default class Gmaps extends React.Component {
-    componentDidMount() {
-        let map = new window.google.maps.Map(document.getElementById('map'), {
-            center: {lat: -33.8688, lng: 151.2195},
-            zoom: 13,
-            mapTypeId: 'roadmap',
-        })
-    }
+const googleMaps = withScriptjs(withGoogleMap((props) =>
+    <GoogleMap
+        defaultZoom={8}
+        defaultCenter={{ lat: -34.397, lng: 150.644 }}
+    >
+        {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
+    </GoogleMap>
+));
 
-    render() {
-        return (
-            <div id='app'>
-                <div id='map' />
-            </div>
-        );
-    }
-}
+export default googleMaps;
+
+// <MyMapComponent isMarkerShown={false} />// Just only Map
 
 // https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuy9KEifq9EcRJz0TUVFvvZ4&key=...
 

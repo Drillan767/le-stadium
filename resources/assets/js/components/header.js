@@ -2,11 +2,6 @@ import React from 'react';
 
 export default class Header extends React.Component {
 
-    componentDidMount() {
-        let height = document.getElementById('landing').offsetHeight;
-        console.log(height);
-    }
-
     render() {
         return (
             <div className="navbar-fixed">

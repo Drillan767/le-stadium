@@ -3,9 +3,6 @@ import $ from 'jquery';
 
 export default class Footer extends React.Component {
 
-    componentDidMount() {
-        $('#message').trigger('autoresize');
-    }
     render() {
         return (
             <footer className="page-footer" id="contact">
@@ -31,7 +28,7 @@ export default class Footer extends React.Component {
                             <ul>
                                 <li><a className="grey-text text-lighten-3" href="#home">Accueil</a></li>
                                 <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                                <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                                <li><a className="grey-text text-lighten-3" href="#!">Gallerie</a></li>
                                 <li><a className="grey-text text-lighten-3" href="#contact">Contact</a></li>
                             </ul>
                         </div>

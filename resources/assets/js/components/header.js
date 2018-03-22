@@ -1,10 +1,16 @@
 import React from 'react';
 
 export default class Header extends React.Component {
+
+    componentDidMount() {
+        let height = document.getElementById('landing').offsetHeight;
+        console.log(height);
+    }
+
     render() {
         return (
-            [
-                <nav className="transparent z-depth-0" key={"nav"}>
+            <div className="navbar-fixed">
+                <nav className="z-depth-0" key={"nav"}>
                     <div className="nav-wrapper">
                         <div className="row">
                             <div className="col s12">
@@ -19,13 +25,13 @@ export default class Header extends React.Component {
                             </div>
                         </div>
                     </div>
-                </nav>,
+                </nav>
                 <ul className="sidenav" id="mobile-demo" key={"ul"}>
                     <li><a href="https://github.com/dogfalo/materialize/" target="_blank">Github</a></li>
                     <li><a href="https://twitter.com/MaterializeCSS" target="_blank">Twitter</a></li>
                     <li><a href="http://next.materializecss.com/getting-started.html" target="_blank">Docs</a></li>
                 </ul>
-            ]
+            </div>
         )
     }
 }

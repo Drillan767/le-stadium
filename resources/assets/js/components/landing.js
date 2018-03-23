@@ -7,7 +7,7 @@ export default class Landing extends React.Component {
                 id="landing"
                 className="white-text"
                 key={"header"}
-                ref={this.props.ref}
+                ref={this.props.forwardRef}
             >
                 <div className="container">
                     <h1>Opacity on scroll</h1>

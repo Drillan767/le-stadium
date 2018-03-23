@@ -9,26 +9,50 @@ export default class Stadium extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            json: null,
-            height: ""
+            data: null,
+            opacity: '',
         };
     }
 
     componentDidMount() {
-        console.log(this.Landing.clientHeight);
-        this.setState({json: 'AIzaSyA5NDe1-4En7DrhR0uUQDIHV7x6vUt3lCw'})
+        let self = this;
+        $.get(window.location.origin + '/data', function(data) {
+            self.setState({data: data})
+        });
+
+        let supportPageOffset = window.pageXOffset !== undefined,
+            isCSS1Compat = ((document.compatMode || "") === "CSS1Compat"),
+            range = 200,
+            height = this.heightRef.clientHeight;
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop,
+                offset = height / 1.1,
+                calc = 1 - (scrollTop - offset + range) / range,
+                result = '';
+
+            if (calc > '1') {
+                result = 0;
+            } else if ( calc < '0' ) {
+                result = 1;
+            }
+            else {
+                result = calc;
+            }
+
+            self.setState({opacity: result});
+        });
     }
 
     render() {
-        const { json } = this.state;
+        const { data, opacity } = this.state;
         return (
-            json !== null &&
-                <React.Fragment>
-                    <Header />,
-                    <Landing ref={elem => (this.Landing = elem)} />,
-                    <Gmaps gmapskey={json.g_map_key} />
-                    <Footer />
-                </React.Fragment>
+            <React.Fragment>
+                <Header opacity={opacity}/>
+                <Landing image={data && data.landing_image} forwardRef={elem => (this.heightRef = elem)} />
+                <Gmaps gmapskey={data && data.g_map_key} />
+                <Footer />
+            </React.Fragment>
         );
     }
 }

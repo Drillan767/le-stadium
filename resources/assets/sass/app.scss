@@ -1,57 +1,112 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-@import "~materialize-css/dist/css/materialize.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "variables";
 
-header {
-  position: relative;
-  background-color: black;
-  padding: 1em;
+#landing {
+
+  background: no-repeat center center;
   height: 100vh;
-  &:before {
-    content: ' ';
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+  img {
+    max-width: 50%;
+    padding-left: 50px;
+  }
+}
+
+section .section-title {
+  text-align: center;
+  color: #007b5e;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+#footer {
+  background: #007b5e !important;
+}
+#footer h5{
+  padding-left: 10px;
+  border-left: 3px solid #eeeeee;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  color:#ffffff;
+}
+#footer a {
+  color: #ffffff;
+  text-decoration: none !important;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+  padding: 3px 0;
+}
+#footer ul.social li a i {
+  margin-right: 5px;
+  font-size:25px;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+  font-size:30px;
+  margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+  color:#ffffff;
+}
+#footer ul.social li a:hover{
+  color:#eeeeee;
+}
+#footer ul.quick-links li{
+  padding: 3px 0;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+  padding: 3px 0;
+  margin-left:5px;
+  font-weight:700;
+}
+#footer ul.quick-links li a i{
+  margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+  font-weight: 700;
+}
+
+@media (max-width:767px){
+  #footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 62em) {
+  .navbar-nav {
+    padding-top: .425rem;
+    padding-left: 0.75rem;
+  }
+  .navbar-nav .nav-item {
+    float: none;
+  }
+  .navbar-brand {
+    float: right;
+  }
+  .navbar-brand,
+  .navbar-nav .nav-item {
     display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://i.giphy.com/vYTo95h4e2j6M.gif");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 65% 50%;
-    opacity: 0.4;
   }
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  z-index: 3;
-}
-
-.input-field {
-  label {
-    color: $white;
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
   }
-
-  input, textarea {
-    color: $white;
-
-    &[type=text]:focus {
-      //border-bottom: 1px solid $white !important;
-      box-shadow: 0 1px 0 0 $white;
-    }
-
-    &[type=text]:focus + label {
-    }
+  .dropdown-menu {
+    position: relative;
+    float: none;
   }
-}
-
-footer.page-footer {
-  background-color: $green;
-  margin-top: -6px;
-}
-
-textarea.materialize-textarea {
-  height: 100px;
 }

@@ -58,7 +58,7 @@
             </div>
 
             <div class="input-field col s6 offset-s3">
-                <input id="description" name="description" type="text" class="validate" value="{{ $stadium->description }}">
+                <textarea id="description" name="description" class="materialize-textarea">{{ strip_tags($stadium->description) }}</textarea>
                 <label for="description">Description</label>
             </div>
 

@@ -19,7 +19,7 @@ class Stadium extends Migration
             $table->string('logo');
             $table->string('g_map_key');
             $table->string('background_description');
-            $table->string('description');
+            $table->text('description');
             $table->string('hours');
             $table->string('location');
             $table->text('gallery');

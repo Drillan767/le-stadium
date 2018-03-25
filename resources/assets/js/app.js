@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Stadium from './components'
-import 'materialize-css/dist/js/materialize.min';
+import 'popper.js';
+import 'bootstrap/dist/js/bootstrap.min';
 
 ReactDOM.render(
   <Stadium />,

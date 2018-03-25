@@ -51,7 +51,7 @@
             </div>
 
             <div class="input-field col s6 offset-s3">
-                <input id="description" name="description" type="text" class="validate" />
+                <textarea id="description" name="description" class="materialize-textarea"></textarea>
                 <label for="description">Description</label>
             </div>
 

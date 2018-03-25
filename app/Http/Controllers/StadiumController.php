@@ -32,7 +32,7 @@ class StadiumController extends Controller {
 
     $data = [
       'g_map_key' => $request['g_map_key'],
-      'description' => $request['description'],
+      'description' => nl2br($request['description']),
       'hours' => $request['hours'],
       'location' => $request['location'],
     ];
@@ -45,7 +45,7 @@ class StadiumController extends Controller {
       $data['gallery'] = serialize($gallery);
     }
 
-    foreach (['landing_page', 'logo', 'background_description'] as $field) {
+    foreach (['landing_image', 'logo', 'background_description'] as $field) {
       if (!empty($request->$field)) {
         $data[$field] = $this->uploadFile($request->$field, $field);
       }
@@ -77,7 +77,7 @@ class StadiumController extends Controller {
     $stadium->g_map_key = $request['g_map_key'];
     $stadium->logo = $this->uploadFile($request->logo, 'logo');
     $stadium->background_description = $this->uploadFile($request->background_description, 'background_description');
-    $stadium->description = $request['description'];
+    $stadium->description = nl2br($request['description']);
     $stadium->hours = $request['hours'];
     $stadium->location = $request['location'];
 
@@ -98,3 +98,5 @@ class StadiumController extends Controller {
     return '/' . str_replace('public', 'storage', $path);
   }
 }
+
+//AIzaSyA5NDe1-4En7DrhR0uUQDIHV7x6vUt3lCw

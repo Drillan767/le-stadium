@@ -4,41 +4,32 @@ export default class Footer extends React.Component {
 
     render() {
         return (
-            <footer className="page-footer" id="contact">
+            <section id="footer">
                 <div className="container">
-                    <div className="row">
-                        <div className="col l6 s12">
-                            <h5 className="white-text">Contact</h5>
-                            <div className="input-field col s8 offset-s2">
-                                <input id="email" name="email" type="text" />
-                                <label htmlFor="email">E-mail</label>
-                            </div>
-                            <div className="input-field col s8 offset-s2">
-                                <input id="subject" name="subject" type="text" />
-                                <label htmlFor="subject">Objet</label>
-                            </div>
-                            <div className="input-field col s8 offset-s2">
-                                <textarea id="message" name="message" className="materialize-textarea" />
-                                <label htmlFor="message">Textarea</label>
-                            </div>
+                    <div className="row text-center text-xs-center text-sm-left text-md-left">
+                        <div className="col-xs-12 col-sm-8">
+                            <h5>Contact</h5>
+                            <p>[ICI LE FORMULAIRE MDR]</p>
                         </div>
-                        <div className="col l4 offset-l2 s12">
-                            <h5 className="white-text">Links</h5>
-                            <ul>
-                                <li><a className="grey-text text-lighten-3" href="#home">Accueil</a></li>
-                                <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                                <li><a className="grey-text text-lighten-3" href="#!">Gallerie</a></li>
-                                <li><a className="grey-text text-lighten-3" href="#contact">Contact</a></li>
+                        <div className="col-xs-12 col-sm-4 col-md-4">
+                            <h5>Quick links</h5>
+                            <ul className="list-unstyled quick-links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Get Started</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div className="footer-copyright">
-                    <div className="container">
-                        © 2018 Le Stadium
+                <div className="row">
+                    <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p>National Transaction Corporation is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                        <p className="h6">&copy All right Reversed.<a className="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
                     </div>
+                    <hr />
                 </div>
-            </footer>
+            </section>
         )
     }
 }

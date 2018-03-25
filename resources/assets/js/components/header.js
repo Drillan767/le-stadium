@@ -3,18 +3,34 @@ import React from 'react';
 export default class Header extends React.Component {
 
     render() {
-        const { opacity } = this.props;
         return (
-            <nav className="z-depth-0 transparent" style={{opacity: opacity}}>
-                <div className="nav-wrapper">
-                    <a href="#" className="brand-logo">Logo</a>
-                    <ul id="nav-mobile" className="right">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">JavaScript</a></li>
+            <nav className="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+                <a href="/" className="navbar-brand">Le Stadium</a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
+                    <span className="navbar-toggler-icon" />
+                </button>
+                <div className="navbar-collapse collapse justify-content-stretch" id="navbar7">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <a className="nav-link" href="#landing">Accueil</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Présentation</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Link</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#contact">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
         )
     }
 }
+
+/*
+
+
+ */

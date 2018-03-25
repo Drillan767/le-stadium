@@ -23,6 +23,8 @@
     },
     "dependencies": {
         "babel-preset-react": "^6.24.1",
-        "materialize-css": "^1.0.0-alpha.4"
+        "bootstrap": "^4.0.0",
+        "materialize-css": "^1.0.0-alpha.4",
+        "popper.js": "^1.14.1"
     }
 }

@@ -11,5 +11,13 @@ class Stadium extends Model {
   public $timestamps = false;
 
   protected $fillable = ['landing_image', 'g_map_key', 'logo', 'background_description',
-    'description', 'hours', 'location', 'gallery'];
+    'description', 'menu', 'hours', 'location', 'gallery'];
+
+  public function dishes() {
+    return $this->hasMany('App\Dishes');
+  }
+
+  public function pictures() {
+    return $this->hasMany('App\Pictures');
+  }
 }

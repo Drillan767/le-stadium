@@ -91,6 +91,14 @@ class StadiumController extends Controller {
     return redirect('/admin')->with('success', 'Enregistré');
   }
 
+  public function addDish() {
+    return view('stadium.dish');
+  }
+
+  public function addPic() {
+    return view('stadium.pic');
+  }
+
   private function uploadFile($file, $destination) {
 
     $filename = $file->getClientOriginalName();

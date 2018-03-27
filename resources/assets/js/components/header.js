@@ -12,14 +12,21 @@ export default class Header extends React.Component {
                 <div className="navbar-collapse collapse justify-content-stretch" id="navbar7">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link" href="#landing">Accueil</a>
+                            <a className="nav-link" href="#accueil">Accueil</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#platdujour">Plat du jour</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#menu">Menu</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Présentation</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Link</a>
+                            <a className="nav-link" href="#gallerie">Gallerie</a>
                         </li>
+
                         <li className="nav-item">
                             <a className="nav-link" href="#contact">Contact</a>
                         </li>

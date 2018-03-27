@@ -22,9 +22,9 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "@fancyapps/fancybox": "^3.2.5",
         "babel-preset-react": "^6.24.1",
         "bootstrap": "^4.0.0",
-        "fancybox": "^3.0.1",
         "materialize-css": "^1.0.0-alpha.4",
         "npm": "^5.8.0",
         "popper.js": "^1.14.1"

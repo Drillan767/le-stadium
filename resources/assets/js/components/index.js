@@ -3,9 +3,11 @@ import Header from './header';
 import Landing from './landing';
 import Menu from './menu';
 import About from './about';
+import Gallery from './gallery';
 import Gmaps from './g_maps';
 import Footer from './footer';
 import $ from 'jquery';
+
 
 export default class Stadium extends React.Component {
     constructor(props) {
@@ -35,6 +37,7 @@ export default class Stadium extends React.Component {
                     menu={data.dishes}
                 />
                 <About image={data.background_description} description={data.description}/>
+                <Gallery images={data.pictures}/>
                 <Gmaps gmapskey={data.g_map_key} />
                 <Footer />
             </React.Fragment>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Stadium;
 
 class StadiumController extends Controller {
@@ -66,6 +65,7 @@ class StadiumController extends Controller {
    */
   public function store(Request $request) {
 
+//    dd($request);
 
     $stadium = new Stadium();
     $data = $this->validate($request, [
@@ -74,29 +74,32 @@ class StadiumController extends Controller {
     ]);
 
     $stadium->landing_image = $this->uploadFile($request->landing_image, 'landing_page');
-    $stadium->g_map_key = $request['g_map_key'];
+    $stadium->g_map_key = $request->g_map_key;
     $stadium->logo = $this->uploadFile($request->logo, 'logo');
     $stadium->background_description = $this->uploadFile($request->background_description, 'background_description');
-    $stadium->description = nl2br($request['description']);
-    $stadium->hours = $request['hours'];
-    $stadium->location = $request['location'];
+    $stadium->description = nl2br($request->description);
+    $stadium->hours = $request->hours;
+    $stadium->location = $request->location;
+    $stadium->today_special = $request->today_special;
+    $stadium->today_price = $request->today_price;
 
-    $gallery = [];
-    foreach ($request['gallery'] as $image) {
-      $gallery[] =$this->uploadFile($image, 'gallery');
+    $stadium->save();
+
+    foreach($request->name as $key => $value) {
+      $stadium->dishes()->create([
+        'name' => $value,
+        'price' => $request->price[$key],
+        'category' => $request->category[$key]
+      ]);
     }
 
-    $stadium->gallery = serialize($gallery);
-    $stadium->save();
+    foreach ($request->gallery as $image) {
+      $stadium->pictures()->create([
+        'path' => $this->uploadFile($image, 'gallery')
+      ]);
+    }
+
     return redirect('/admin')->with('success', 'Enregistré');
-  }
-
-  public function addDish() {
-    return view('stadium.dish');
-  }
-
-  public function addPic() {
-    return view('stadium.pic');
   }
 
   private function uploadFile($file, $destination) {

@@ -50,37 +50,53 @@
                 </div>
             </div>
 
-            <table >
-                <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prix</th>
-                    <th>Catégorie</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
+            <div class="col s6 offset-s3">
+                <h5>Menu du jour</h5>
 
-                <tbody id="dynamic_field">
-                <tr>
-                    <td>
-                        <input type="text" name="name[]" placeholder="Nom" class="form-control name_list" />
-                    </td>
-                    <td>
-                        <input type="text" name="price[]" placeholder="Prix" class="form-control name_list" />
-                    </td>
-                    <td>
-                        <select name="category[]">
-                            <option value="salade">Salade</option>
-                            <option value="plat">Plat</option>
-                            <option value="dessert">Dessert</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                <div class="input-field col s9">
+                    <input id="today_special" name="today_special" type="text" />
+                    <label for="today_special">Nom</label>
+                </div>
+                <div class="input-field col s3">
+                    <input id="today_price" name="today_price" type="text" />
+                    <label for="today_price">Prix</label>
+                </div>
+            </div>
+
+            <div class="col s6 offset-s3">
+                <h5>Menus</h5>
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prix</th>
+                            <th>Catégorie</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="dish_field">
+                        <tr>
+                            <td width="60%">
+                                <input type="text" name="name[]" placeholder="Nom" class="form-control name_list"/>
+                            </td>
+                            <td width="10%">
+                                <input type="text" name="price[]" placeholder="Prix" class="form-control name_list"/>
+                            </td>
+                            <td width="20%">
+                                <select name="category[]">
+                                    <option value="salade">Salade</option>
+                                    <option value="plat">Plat</option>
+                                    <option value="dessert">Dessert</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button" name="add" id="add_dish" class="btn btn-success">Ajouter</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div class="input-field col s6 offset-s3">
                 <textarea id="description" name="description" class="materialize-textarea"></textarea>
@@ -106,7 +122,7 @@
                     <input class="file-path validate" type="text" placeholder="Uploader plusieurs images">
                 </div>
             </div>
-            <div class="col s6 input-field center">
+            <div class="col s6 offset-s3 input-field center">
                 <button type="submit" class="btn btn-primary">Sauvegarder</button>
             </div>
 

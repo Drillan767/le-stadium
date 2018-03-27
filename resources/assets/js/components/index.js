@@ -24,18 +24,13 @@ export default class Stadium extends React.Component {
     render() {
         const { data } = this.state;
         return (
-            data && data.length > 0 ?
+            data &&
             <React.Fragment>
                 <Header />
                 <Landing image={data && data.landing_image} logo={data && data.logo} />
                 <About image={data && data.background_description} description={data && data.description}/>
                 <Gmaps gmapskey={data && data.g_map_key} />
                 <Footer />
-            </React.Fragment>
-            :
-            <React.Fragment>
-                <Header />
-                <h1>Veuillez <a href={window.location.origin + "/register"}>créer un compte</a></h1>
             </React.Fragment>
         );
     }

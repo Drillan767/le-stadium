@@ -1,22 +1,23 @@
-import $ from 'jquery';
-import 'materialize-css/dist/js/materialize.min.js';
+import 'materialize-css/dist/js/materialize.min.js'
 
 $(document).ready(function(){
-    let postURL = "<?php echo url('addmore'); ?>";
+
+    $('select').formSelect();
+
     let i=1;
 
-    $('#add').click(function(){
+    $('#add_dish').click(function(){
         i++;
-        $('#dynamic_field').append('' +
+        $('#dish_field').append('' +
             '<tr id="row'+i+'" class="dynamic-added">' +
                 '<td>' +
-                    '<input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" />' +
+                    '<input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" required />' +
                 '</td>' +
                 '<td>' +
-                    '<input type="text" name="price[]" placeholder="Prix" class="form-control name_list" />' +
+                    '<input type="text" name="price[]" placeholder="Prix" class="form-control name_list" required />' +
                 '</td>' +
                 '<td>' +
-                    '<select name="category[]">\n' +
+                    '<select name="category[]" required>' +
                         '<option value="salade">Salade</option>' +
                         '<option value="plat">Plat</option>' +
                         '<option value="dessert">Dessert</option>' +
@@ -28,6 +29,8 @@ $(document).ready(function(){
                 '</td>' +
             '</tr>'
         );
+
+        $('select').formSelect();
     });
 
 

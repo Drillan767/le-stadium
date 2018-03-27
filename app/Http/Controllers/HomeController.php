@@ -18,7 +18,7 @@ class HomeController extends Controller
     }
 
     public function data() {
-        $stadium = Stadium::find(1);
+        $stadium = Stadium::with(['pictures', 'dishes'])->find(1);
         return response()->json($stadium);
     }
 }

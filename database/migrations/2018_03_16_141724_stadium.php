@@ -24,8 +24,6 @@ class Stadium extends Migration
             $table->text('description');
             $table->string('hours');
             $table->string('location');
-            $table->text('gallery');
-            $table->timestamps();
         });
     }
 

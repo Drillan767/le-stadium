@@ -50,6 +50,38 @@
                 </div>
             </div>
 
+            <table >
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Catégorie</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+
+                <tbody id="dynamic_field">
+                <tr>
+                    <td>
+                        <input type="text" name="name[]" placeholder="Nom" class="form-control name_list" />
+                    </td>
+                    <td>
+                        <input type="text" name="price[]" placeholder="Prix" class="form-control name_list" />
+                    </td>
+                    <td>
+                        <select name="category[]">
+                            <option value="salade">Salade</option>
+                            <option value="plat">Plat</option>
+                            <option value="dessert">Dessert</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
             <div class="input-field col s6 offset-s3">
                 <textarea id="description" name="description" class="materialize-textarea"></textarea>
                 <label for="description">Description</label>

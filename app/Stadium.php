@@ -10,7 +10,7 @@ class Stadium extends Model {
 
   public $timestamps = false;
 
-  protected $fillable = ['landing_image', 'g_map_key', 'logo', 'background_description',
+  protected $fillable = ['landing_image', 'g_map_key', 'today_special', 'today_price', 'logo', 'background_description',
     'description', 'menu', 'hours', 'location', 'gallery'];
 
   public function dishes() {

@@ -79,18 +79,46 @@
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text" placeholder="Uploader plusieurs images">
-                    <span class="helper-text" data-error="wrong" data-success="right">
+                   {{-- <span class="helper-text" data-error="wrong" data-success="right">
                         @foreach(unserialize($stadium->gallery) as $picture)
                             <li>{{ basename($picture) }}</li>
                         @endforeach
-                    </span>
+                    </span>--}}
                 </div>
             </div>
+
+            <table class="responsive-table col s6 offset-s3">
+                <thead>
+                <tr>
+                    <th>Fichier</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody id="gallery">
+                    <tr class="center">
+                        <label for="gallery_ajax" class="btn">Ajouter</label>
+                        <input type="file" name="gallery_ajax" id="gallery_ajax"/>
+                    </tr>
+                    @foreach($stadium->pictures as $picture)
+                        <tr id="{{ $picture->id }}">
+                            <td>
+                                <a class="modal-trigger" data-content="{{ $picture->path }}" href="#modal">{{ basename($picture->path) }}</a>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" data-content="{{ $picture->id }}" class="btn red">Supprimer</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
             <div class="col s6 offset-s3 input-field center">
                 <button type="submit" class="btn btn-primary">Sauvegarder</button>
             </div>
 
         {!! Form::close() !!}
     </div>
+
+    <div id="modal" class="modal"></div>
 @endsection
 

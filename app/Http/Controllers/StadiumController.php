@@ -102,6 +102,15 @@ class StadiumController extends Controller {
     return redirect('/admin')->with('success', 'Enregistré');
   }
 
+  public function removeFromGallery($id) {
+    Stadium::with('pictures')->find(1)->pictures()->where('id', $id)->delete();
+    return response()->json('Supprimé');
+  }
+
+  public function addToGallery(Request $request) {
+
+  }
+
   private function uploadFile($file, $destination) {
 
     $filename = $file->getClientOriginalName();

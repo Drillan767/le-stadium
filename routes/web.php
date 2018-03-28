@@ -11,6 +11,6 @@ Route::prefix('admin')->group(function () {
   Route::get('/create', 'StadiumController@create');
   Route::post('/create','StadiumController@store');
 
-  Route::get("/add_dish","StadiumController@addDish");
-  Route::get("/add_pic","StadiumController@addPic");
+  Route::post('/gallery/delete/{id}',"StadiumController@removeFromGallery");
+  Route::post("/add_pic","StadiumController@addToGallery");
 });

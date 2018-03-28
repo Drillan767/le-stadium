@@ -2,6 +2,12 @@ import 'materialize-css/dist/js/materialize.min.js'
 
 $(document).ready(function(){
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     $('select').formSelect();
 
     let i=1;
@@ -38,4 +44,21 @@ $(document).ready(function(){
         let button_id = $(this).attr("id");
         $('#row'+button_id+'').remove();
     });
+
+    $('.modal-trigger').click(function() {
+        $('#modal').append('<img src="' + $(this).attr('data-content')+ '" />').modal();
+    });
+
+    $('.btn.red').click(function() {
+        let self = $(this),
+            id = $(this).attr('data-content');
+        self.closest('tr').css('background', 'blue');
+        $.post("/admin/gallery/delete/" + $(this).attr('data-content'), function(data){
+            if(data === 'supprimé') {
+                document.getElementById(id).remove();
+            }
+        });
+    })
+
+
 });

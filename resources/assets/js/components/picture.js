@@ -5,7 +5,10 @@ export default class Picture extends React.Component {
     render() {
         const { img } = this.props;
         return (
-            img && <p>{img}</p>
+            img &&
+            <a data-fancybox="gallery" href={image}>
+                <img src={img} className="gallery-image"/>
+            </a>
         )
     }
 }

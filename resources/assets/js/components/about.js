@@ -7,8 +7,8 @@ export default class About extends React.Component {
         return (
             <div id="presentation">
                 <div className="row">
-                    <div className="col-sm-12 main-title text-center">
-                        <h1 className="main-title">Présentation</h1>
+                    <div className="col-sm-12 main-title">
+                        <h1 className="main-title offset-md-1">Présentation</h1>
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@ export default class About extends React.Component {
                         </a>
                     </div>
 
-                    <div className="col-md-4" dangerouslySetInnerHTML={{ __html: description}} />
+                    <div className="col-md-4 about-text" dangerouslySetInnerHTML={{ __html: description}} />
                 </div>
             </div>
         )

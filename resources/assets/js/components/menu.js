@@ -13,18 +13,23 @@ export default class Menu extends React.Component {
             dishes = menu.filter(m => m.category === 'plat');
 
         return (
-            <div id="menu" className="container">
-                <h1>Menu</h1>
+            <div id="menu">
+                <div className="row">
+                    <div className="col-sm-12 main-title">
+                        <h1 className="main-title offset-md-1">Menu</h1>
+                    </div>
+                </div>
                 {
                     (today_dish && today_price) &&
                     <Today dish={today_dish} price={today_price} />
                 }
 
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-5 offset-md-2">
                         {
                             dishes !== null &&
                             <Dish dishes={dishes} />
+
                         }
 
                         {
@@ -32,7 +37,7 @@ export default class Menu extends React.Component {
                             <Salad salads={salads} />
                         }
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-3">
                         {
                             dishes !== null &&
                             <Dessert desserts={desserts} />

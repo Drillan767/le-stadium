@@ -13,13 +13,12 @@ export default class Dish extends React.Component {
                             return (
                                 <li key={i}>
                                     <span>{dish.name}</span>
-                                    <span>{dish.price}</span>
+                                    <span>{dish.price} €</span>
                                 </li>
                             )
                         })
                     }
                 </ul>
-
             </React.Fragment>
         )
     }

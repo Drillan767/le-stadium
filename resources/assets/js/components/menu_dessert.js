@@ -13,7 +13,7 @@ export default class Dessert extends React.Component {
                             return (
                                 <li key={i}>
                                     <span>{dessert.name}</span>
-                                    <span>{dessert.price}</span>
+                                    <span>{dessert.price} €</span>
                                 </li>
                             )
                         })

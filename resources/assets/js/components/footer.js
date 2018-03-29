@@ -4,7 +4,7 @@ export default class Footer extends React.Component {
 
     render() {
         return (
-            <section id="footer">
+            <footer className="footer">
                 <div className="container">
                     <div className="row text-center text-xs-center text-sm-left text-md-left">
                         <div className="col-xs-12 col-sm-8">
@@ -29,7 +29,7 @@ export default class Footer extends React.Component {
                     </div>
                     <hr />
                 </div>
-            </section>
+            </footer>
         )
     }
 }

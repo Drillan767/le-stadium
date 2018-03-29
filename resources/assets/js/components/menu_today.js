@@ -9,10 +9,10 @@ export default class Today extends React.Component {
                 <ul className="leaders">
                     {
                         (dish && price) &&
-                            <li>
-                                <span>{dish}</span>
-                                <span>{price} €</span>
-                            </li>
+                        <li>
+                            <span>{dish}</span>
+                            <span>{price} €</span>
+                        </li>
                     }
                 </ul>
             </React.Fragment>

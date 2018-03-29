@@ -13,7 +13,7 @@ export default class Salad extends React.Component {
                             return (
                                 <li key={i}>
                                     <span>{salad.name}</span>
-                                    <span>{salad.price}</span>
+                                    <span>{salad.price} €</span>
                                 </li>
                             )
                         })

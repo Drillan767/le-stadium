@@ -24,3 +24,7 @@ nav,
   height: 115px;
 }
 
+#modal image {
+  max-width: 100%;
+}
+

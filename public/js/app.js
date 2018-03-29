@@ -30810,16 +30810,20 @@ var Stadium = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__header__["a" /* default */], null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__landing__["a" /* default */], { image: data.landing_image, logo: data.logo }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__menu__["a" /* default */], {
-                    today_dish: data.today_special,
-                    today_price: data.today_price,
-                    menu: data.dishes
-                }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__about__["a" /* default */], { image: data.background_description, description: data.description }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__gallery__["a" /* default */], { images: data.pictures }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__g_maps__["a" /* default */], { gmapskey: data.g_map_key }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__footer__["a" /* default */], null)
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'main',
+                    { role: 'main' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__landing__["a" /* default */], { image: data.landing_image, logo: data.logo }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__menu__["a" /* default */], {
+                        today_dish: data.today_special,
+                        today_price: data.today_price,
+                        menu: data.dishes
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__about__["a" /* default */], { image: data.background_description, description: data.description }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__gallery__["a" /* default */], { images: data.pictures }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__g_maps__["a" /* default */], { gmapskey: data.g_map_key }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__footer__["a" /* default */], null)
+                )
             );
         }
     }]);
@@ -30884,15 +30888,6 @@ var Header = function (_React$Component) {
                                 "a",
                                 { className: "nav-link", href: "#accueil" },
                                 "Accueil"
-                            )
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "li",
-                            { className: "nav-item" },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "a",
-                                { className: "nav-link", href: "#platdujour" },
-                                "Plat du jour"
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -30983,7 +30978,7 @@ var Landing = function (_React$Component) {
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "div",
-                { id: "accueil", style: { backgroundImage: "url(" + image } },
+                { id: "accueil", style: { backgroundImage: "url(" + image }, className: "row" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: logo, className: "logo", alt: "logo" })
             );
         }
@@ -31038,20 +31033,29 @@ var Menu = function (_React$Component) {
 
             var salads = menu.filter(function (m) {
                 return m.category === 'salade';
-            });
-            var desserts = menu.filter(function (m) {
-                return m.category === 'desserts';
-            });
-            var dishes = menu.filter(function (m) {
+            }),
+                desserts = menu.filter(function (m) {
+                return m.category === 'dessert';
+            }),
+                dishes = menu.filter(function (m) {
                 return m.category === 'plat';
             });
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'menu' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h1',
-                    null,
-                    'Menu'
+                    'div',
+                    { className: 'row' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'col-sm-12 main-title' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'h1',
+                            { className: 'main-title offset-md-1' },
+                            'Menu'
+                        )
+                    )
                 ),
                 today_dish && today_price && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__menu_today__["a" /* default */], { dish: today_dish, price: today_price }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -31059,13 +31063,13 @@ var Menu = function (_React$Component) {
                     { className: 'row' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'col-md-8' },
+                        { className: 'col-md-5 offset-md-2' },
                         dishes !== null && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__menu_dish__["a" /* default */], { dishes: dishes }),
                         salads !== null && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__menu_salads__["a" /* default */], { salads: salads })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'col-md-4' },
+                        { className: 'col-md-3' },
                         dishes !== null && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__menu_dessert__["a" /* default */], { desserts: desserts })
                     )
                 )
@@ -31108,32 +31112,42 @@ var Today = function (_React$Component) {
     }
 
     _createClass(Today, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             var _props = this.props,
                 dish = _props.dish,
                 price = _props.price;
 
-            return dish && price && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "row" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h4',
-                    null,
-                    'Menu du jour'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h5',
-                    null,
-                    dish,
-                    ' - ',
-                    price,
-                    ' \u20AC'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    null,
-                    'Sed at ex sed erat iaculis ultricies a non metus. Donec nulla magna, dictum ac nisl eget, pellentesque fermentum ante.'
+                    "div",
+                    { className: "col-md-8 offset-md-2" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "h4",
+                        null,
+                        "Menu du jour"
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "ul",
+                        { className: "leaders today" },
+                        dish && price && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "li",
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                dish
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                price,
+                                " \u20AC"
+                            )
+                        )
+                    )
                 )
             );
         }
@@ -31171,34 +31185,39 @@ var Salad = function (_React$Component) {
     }
 
     _createClass(Salad, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             var salads = this.props.salads;
 
             return salads !== null && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h4',
+                    "h4",
                     null,
-                    'Salades'
+                    "Salades"
                 ),
-                salads.map(function (salad, i) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { key: i },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h6',
-                            null,
-                            salad.name
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            null,
-                            salad.price
-                        )
-                    );
-                })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "ul",
+                    { className: "leaders" },
+                    salads.map(function (salad, i) {
+                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "li",
+                            { key: i },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                salad.name
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                salad.price,
+                                " \u20AC"
+                            )
+                        );
+                    })
+                )
             );
         }
     }]);
@@ -31235,34 +31254,39 @@ var Dish = function (_React$Component) {
     }
 
     _createClass(Dish, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             var dishes = this.props.dishes;
 
             return dishes !== null && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h4',
+                    "h4",
                     null,
-                    'Plats'
+                    "Plats"
                 ),
-                dishes.map(function (dish, i) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { key: i },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h6',
-                            null,
-                            dish.name
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            null,
-                            dish.price
-                        )
-                    );
-                })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "ul",
+                    { className: "leaders" },
+                    dishes.map(function (dish, i) {
+                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "li",
+                            { key: i },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                dish.name
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                dish.price,
+                                " \u20AC"
+                            )
+                        );
+                    })
+                )
             );
         }
     }]);
@@ -31299,34 +31323,39 @@ var Dessert = function (_React$Component) {
     }
 
     _createClass(Dessert, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             var desserts = this.props.desserts;
 
             return desserts !== null && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h4',
+                    "h4",
                     null,
-                    'Desserts'
+                    "Desserts"
                 ),
-                desserts.map(function (dessert, i) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { key: i },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'h6',
-                            null,
-                            dessert.name
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            null,
-                            dessert.price
-                        )
-                    );
-                })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "ul",
+                    { className: "leaders" },
+                    desserts.map(function (dessert, i) {
+                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "li",
+                            { key: i },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                dessert.name
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "span",
+                                null,
+                                dessert.price,
+                                " \u20AC"
+                            )
+                        );
+                    })
+                )
             );
         }
     }]);
@@ -31380,10 +31409,10 @@ var About = function (_React$Component) {
                     { className: 'row' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'col-sm-12 main-title text-center' },
+                        { className: 'col-sm-12 main-title' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'h1',
-                            { className: 'main-title' },
+                            { className: 'main-title offset-md-1' },
                             'Pr\xE9sentation'
                         )
                     )
@@ -31400,7 +31429,7 @@ var About = function (_React$Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: image, className: 'landing-image' })
                         )
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-4', dangerouslySetInnerHTML: { __html: description } })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-4 about-text', dangerouslySetInnerHTML: { __html: description } })
                 )
             );
         }
@@ -31444,12 +31473,11 @@ var Gallery = function (_React$Component) {
         value: function render() {
             var images = this.props.images;
 
-            console.log(images);
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'gallery' },
                 images !== null && images.map(function (pic, i) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__picture__["a" /* default */], { key: i, img: pic.path });
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__picture__["a" /* default */], { key: i, img: pic.path, width: i % 3 === 0 ? 12 : 6 });
                 })
             );
         }
@@ -31492,12 +31520,14 @@ var Picture = function (_React$Component) {
     _createClass(Picture, [{
         key: 'render',
         value: function render() {
-            var img = this.props.img;
+            var _props = this.props,
+                img = _props.img,
+                width = _props.width;
 
             return img && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
                 { 'data-fancybox': 'gallery', href: img },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: img, className: 'gallery-image' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: img, className: "gallery-image col-md-" + width })
             );
         }
     }]);
@@ -31538,13 +31568,17 @@ var Gmaps = function (_React$Component) {
         value: function render() {
             var gmapskey = this.props.gmapskey;
 
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("iframe", {
-                width: "100%",
-                height: "300px",
-                frameBorder: "0",
-                src: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuy9KEifq9EcRJz0TUVFvvZ4&key=" + gmapskey,
-                allowFullScreen: true
-            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { id: "carte", className: "row" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("iframe", {
+                    width: "100%",
+                    height: "300px",
+                    frameBorder: "0",
+                    src: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJuy9KEifq9EcRJz0TUVFvvZ4&key=" + gmapskey,
+                    allowFullScreen: true
+                })
+            );
         }
     }]);
 
@@ -31583,14 +31617,14 @@ var Footer = function (_React$Component) {
         key: "render",
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "section",
-                { id: "footer" },
+                "footer",
+                { className: "footer row", id: "contact" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "div",
                     { className: "container" },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         "div",
-                        { className: "row text-center text-xs-center text-sm-left text-md-left" },
+                        { className: "row footer-container" },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             "div",
                             { className: "col-xs-12 col-sm-8" },
@@ -31600,9 +31634,29 @@ var Footer = function (_React$Component) {
                                 "Contact"
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "p",
+                                "form",
                                 null,
-                                "[ICI LE FORMULAIRE MDR]"
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    "div",
+                                    { className: "form-group" },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "email", className: "form-control", name: "contact_email", placeholder: "Email" })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    "div",
+                                    { className: "form-group" },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "email", className: "form-control", name: "contact_objet", placeholder: "Objet" })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    "div",
+                                    { className: "form-group" },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { className: "form-control", rows: "3", placeholder: "Message..." })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "hidden", name: "contact_hp" }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    "button",
+                                    { type: "submit", className: "btn btn-primary" },
+                                    "Envoyer"
+                                )
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -31622,7 +31676,7 @@ var Footer = function (_React$Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         "a",
                                         { href: "#" },
-                                        "Home"
+                                        "Accueil"
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -31631,7 +31685,7 @@ var Footer = function (_React$Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         "a",
                                         { href: "#" },
-                                        "About"
+                                        "Menu"
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -31640,7 +31694,7 @@ var Footer = function (_React$Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         "a",
                                         { href: "#" },
-                                        "FAQ"
+                                        "Pr\xE9sentation"
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -31649,36 +31703,21 @@ var Footer = function (_React$Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         "a",
                                         { href: "#" },
-                                        "Get Started"
+                                        "Gallerie"
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    "li",
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        "a",
+                                        { href: "#" },
+                                        "Contact"
                                     )
                                 )
                             )
                         )
                     )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "row" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "p",
-                            null,
-                            "National Transaction Corporation is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]"
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "p",
-                            { className: "h6" },
-                            "&copy All right Reversed.",
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "a",
-                                { className: "text-green ml-2", href: "https://www.sunlimetech.com", target: "_blank" },
-                                "Sunlimetech"
-                            )
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("hr", null)
                 )
             );
         }

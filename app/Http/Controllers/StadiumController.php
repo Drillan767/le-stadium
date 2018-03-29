@@ -36,21 +36,21 @@ class StadiumController extends Controller {
       'location' => $request['location'],
     ];
 
-    if ($request->gallery) {
-      $gallery = [];
-      foreach ($request->gallery as $file) {
-        $gallery[] = $this->uploadFile($file, 'gallery');
-      }
-      $data['gallery'] = serialize($gallery);
-    }
-
     foreach (['landing_image', 'logo', 'background_description'] as $field) {
       if (!empty($request->$field)) {
         $data[$field] = $this->uploadFile($request->$field, $field);
       }
     }
 
-    Stadium::find(1)->update($data);
+    $stadium = Stadium::with('pictures')->find(1);
+    $stadium->update($data);
+    if ($request->gallery) {
+      foreach ($request->gallery as $image) {
+        $stadium->pictures()->create([
+          'path' => $this->uploadFile($image, 'gallery')
+        ]);
+      }
+    }
 
     return redirect('/admin')->with('success', 'Enregistré');
   }
@@ -64,8 +64,6 @@ class StadiumController extends Controller {
    * @return \Illuminate\Http\RedirectResponse
    */
   public function store(Request $request) {
-
-//    dd($request);
 
     $stadium = new Stadium();
     $data = $this->validate($request, [
@@ -107,12 +105,7 @@ class StadiumController extends Controller {
     return response()->json('Supprimé');
   }
 
-  public function addToGallery(Request $request) {
-
-  }
-
   private function uploadFile($file, $destination) {
-
     $filename = $file->getClientOriginalName();
     $path = $file->storeAs('public/' . $destination, $filename);
     return '/' . str_replace('public', 'storage', $path);

@@ -39,23 +39,27 @@ $(document).ready(function(){
         $('select').formSelect();
     });
 
-
     $(document).on('click', '.btn_remove', function(){
         let button_id = $(this).attr("id");
         $('#row'+button_id+'').remove();
     });
 
     $('.modal-trigger').click(function() {
-        $('#modal').append('<img src="' + $(this).attr('data-content')+ '" />').modal();
+        $('#modal')
+            .empty()
+            .append('<img src="' + $(this).attr('data-content')+ '" style="max-width: 100%" />')
+            .modal();
     });
 
     $('.btn.red').click(function() {
-        let self = $(this),
+        let $tr = $(this).closest('tr'),
             id = $(this).attr('data-content');
-        self.closest('tr').css('background', 'blue');
         $.post("/admin/gallery/delete/" + $(this).attr('data-content'), function(data){
             if(data === 'supprimé') {
                 document.getElementById(id).remove();
+                $tr.find('td').fadeOut(1000,function() {
+                    $tr.remove();
+                });
             }
         });
     })

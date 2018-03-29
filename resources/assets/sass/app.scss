@@ -36,6 +36,14 @@ section .section-title {
   margin-bottom: 50px;
   text-transform: uppercase;
 }
+
+#gallery img {
+  object-fit: none;
+  object-position: center;
+  height: 30vw;
+  padding: 0;
+}
+
 #footer {
   background: #007b5e !important;
 }
@@ -122,4 +130,30 @@ section .section-title {
     position: relative;
     float: none;
   }
+}
+
+ul.leaders {
+  max-width: 40em;
+  padding: 0;
+  overflow-x: hidden;
+  list-style: none
+}
+ul.leaders li:before {
+  float: left;
+  width: 0;
+  white-space: nowrap;
+  content:
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+}
+ul.leaders span:first-child {
+  padding-right: 0.33em;
+  background: white
+}
+ul.leaders span + span {
+  float: right;
+  padding-left: 0.33em;
+  background: white
 }

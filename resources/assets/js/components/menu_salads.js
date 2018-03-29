@@ -5,19 +5,21 @@ export default class Salad extends React.Component {
         const { salads } = this.props;
         return (
             salads !== null &&
-            <div>
+            <React.Fragment>
                 <h4>Salades</h4>
-                {
-                    salads.map(function (salad, i) {
-                        return (
-                            <div key={i}>
-                                <h6>{salad.name}</h6>
-                                <p>{salad.price}</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+                <ul className="leaders" >
+                    {
+                        salads.map(function (salad, i) {
+                            return (
+                                <li key={i}>
+                                    <span>{salad.name}</span>
+                                    <span>{salad.price}</span>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </React.Fragment>
         )
     }
 }

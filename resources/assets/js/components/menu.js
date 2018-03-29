@@ -6,10 +6,12 @@ import Dessert from './menu_dessert';
 
 export default class Menu extends React.Component {
     render() {
+
         const {today_dish, today_price, menu} = this.props;
-        let salads = menu.filter(m => m.category === 'salade');
-        let desserts = menu.filter(m => m.category === 'desserts');
-        let dishes = menu.filter(m => m.category === 'plat');
+        let salads = menu.filter(m => m.category === 'salade'),
+            desserts = menu.filter(m => m.category === 'dessert'),
+            dishes = menu.filter(m => m.category === 'plat');
+
         return (
             <div id="menu">
                 <h1>Menu</h1>

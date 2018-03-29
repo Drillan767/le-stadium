@@ -5,19 +5,22 @@ export default class Dish extends React.Component {
         const { dishes } = this.props;
         return (
             dishes !== null &&
-            <div>
+            <React.Fragment>
                 <h4>Plats</h4>
-                {
-                    dishes.map(function (dish, i) {
-                        return (
-                            <div key={i}>
-                                <h6>{dish.name}</h6>
-                                <p>{dish.price}</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+                <ul className="leaders">
+                    {
+                        dishes.map(function (dish, i) {
+                            return (
+                                <li key={i}>
+                                    <span>{dish.name}</span>
+                                    <span>{dish.price}</span>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+
+            </React.Fragment>
         )
     }
 }

@@ -1,8 +1,8 @@
 /node_modules
 /public/hot
 /public/fonts
-/public/css/*
-/public/js/*
+public/css/*
+public/js/*
 /public/uploads
 /public/storage
 /storage/*.key

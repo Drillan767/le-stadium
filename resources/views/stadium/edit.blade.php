@@ -75,15 +75,10 @@
             <div class="file-field input-field col s6 offset-s3">
                 <div class="btn">
                     <span>Fichiers</span>
-                    <input type="file" name="gallery[]" multiple>
+                    <input type="file" name="gallery[]"  multiple>
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text" placeholder="Uploader plusieurs images">
-                   {{-- <span class="helper-text" data-error="wrong" data-success="right">
-                        @foreach(unserialize($stadium->gallery) as $picture)
-                            <li>{{ basename($picture) }}</li>
-                        @endforeach
-                    </span>--}}
                 </div>
             </div>
 
@@ -95,10 +90,6 @@
                 </tr>
                 </thead>
                 <tbody id="gallery">
-                    <tr class="center">
-                        <label for="gallery_ajax" class="btn">Ajouter</label>
-                        <input type="file" name="gallery_ajax" id="gallery_ajax"/>
-                    </tr>
                     @foreach($stadium->pictures as $picture)
                         <tr id="{{ $picture->id }}">
                             <td>

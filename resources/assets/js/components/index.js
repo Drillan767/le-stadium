@@ -30,16 +30,19 @@ export default class Stadium extends React.Component {
             data &&
             <React.Fragment>
                 <Header />
-                <Landing image={data.landing_image} logo={data.logo} />
-                <Menu
-                    today_dish={data.today_special}
-                    today_price={data.today_price}
-                    menu={data.dishes}
-                />
-                <About image={data.background_description} description={data.description}/>
-                <Gallery images={data.pictures}/>
-                <Gmaps gmapskey={data.g_map_key} />
-                <Footer />
+                <main role="main">
+                    <Landing image={data.landing_image} logo={data.logo} />
+                    <Menu
+                        today_dish={data.today_special}
+                        today_price={data.today_price}
+                        menu={data.dishes}
+                    />
+                    <About image={data.background_description} description={data.description}/>
+                    <Gallery images={data.pictures}/>
+                    <Gmaps gmapskey={data.g_map_key} />
+                    <Footer />
+                </main>
+
             </React.Fragment>
         );
     }

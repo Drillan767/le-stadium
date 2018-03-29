@@ -13,7 +13,7 @@ export default class Menu extends React.Component {
             dishes = menu.filter(m => m.category === 'plat');
 
         return (
-            <div id="menu">
+            <div id="menu" className="container">
                 <h1>Menu</h1>
                 {
                     (today_dish && today_price) &&

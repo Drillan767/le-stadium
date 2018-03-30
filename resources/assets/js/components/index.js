@@ -8,7 +8,6 @@ import Gmaps from './g_maps';
 import Footer from './footer';
 import $ from 'jquery';
 
-
 export default class Stadium extends React.Component {
     constructor(props) {
         super(props);

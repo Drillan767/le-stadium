@@ -23,6 +23,6 @@ class HomeController extends Controller
     }
 
     public function sendContact(Request $request) {
-      response()->json($request);
+      return response()->json($request);
     }
 }

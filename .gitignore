@@ -1,5 +1,7 @@
 /node_modules
 public/fonts
+public/css
+public/js
 /public/storage
 /storage/*.key
 /vendor
@@ -7,6 +9,4 @@ public/fonts
 npm-debug.log
 .env*
 !.env.example
-public/css/
-public/js/
 storage/app/public/

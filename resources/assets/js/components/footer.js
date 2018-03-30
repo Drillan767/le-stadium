@@ -24,7 +24,6 @@ export default class Footer extends React.Component {
     }
 
     onSubmit(e) {
-        console.log(this.state);
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: "POST",
@@ -92,12 +91,11 @@ export default class Footer extends React.Component {
                                     onChange={this.handleChange}
                                 />
 
-                                <button type="submit" className="btn btn-primary" onClick={this.onSubmit.bind(this)}>Envoyer</button>
+                                <button type="submit" className="btn" onClick={this.onSubmit.bind(this)}>Envoyer</button>
                             </form>
                         </div>
                         <div className="col-xs-12 col-sm-4 col-md-4">
-                            <h5>Quick links</h5>
-                            <ul className="list-unstyled quick-links">
+                            <ul className="list-unstyled quicklinks">
                                 <li><a href="#">Accueil</a></li>
                                 <li><a href="#">Menu</a></li>
                                 <li><a href="#">Présentation</a></li>

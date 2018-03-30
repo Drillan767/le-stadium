@@ -7,16 +7,23 @@ body {
   font-family: 'Roboto', 'sans-serif';
 }
 
-h1 {
+h1, h5 {
   font-weight: 900;
+  color: $grey;
+
+  &:hover {
+    color: $pink;
+  }
 }
 
 #header {
-  a, a:visited {
-    color: $pink;
+  ul {
+    a, a:visited {
+      color: $pink;
 
-    &:hover {
-      color: darken($pink, 20%);
+      &:hover {
+        color: darken($pink, 20%);
+      }
     }
   }
 }
@@ -98,11 +105,16 @@ section .section-title {
   text-transform: uppercase;
 }
 
-#gallery img {
-  object-fit: none;
-  object-position: center;
-  height: 30vw;
-  padding: 0;
+#gallery {
+  margin-right: -15px;
+  margin-left: -15px;
+
+  img {
+    object-fit: none;
+    object-position: center;
+    height: 30vw;
+    padding: 0;
+  }
 }
 
 #contact {
@@ -110,5 +122,52 @@ section .section-title {
 
   .footer-container {
     margin: 5vh 0;
+
+    form {
+      button {
+        background-color: $pink;
+        color: #fff;
+
+        &:hover {
+          background-color: darken($pink, 20%);
+        }
+      }
+    }
+
+    .quicklinks {
+      margin-top: 24px;
+      text-align: right;
+
+      a {
+        color: $grey;
+        font-weight: 900;
+        font-size: 20px;
+        display: block;
+        margin-bottom: 15px;
+
+        &:hover {
+          text-decoration: none;
+          color: $pink;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px){
+  #contact {
+
+    form {
+      button {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .footer-container {
+      .quicklinks {
+        text-align: center;
+      }
+    }
   }
 }

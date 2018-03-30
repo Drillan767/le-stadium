@@ -11,6 +11,16 @@ h1 {
   font-weight: 900;
 }
 
+#header {
+  a, a:visited {
+    color: $pink;
+
+    &:hover {
+      color: darken($pink, 20%);
+    }
+  }
+}
+
 #accueil {
   background: no-repeat center center;
   height: 100vh;
@@ -25,6 +35,9 @@ h1 {
 }
 
 #menu {
+
+  margin: 10vh 0;
+
   ul.leaders {
     max-width: 40em;
     padding: 0;

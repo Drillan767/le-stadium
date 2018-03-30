@@ -1,6 +1,22 @@
 import React from 'react';
 
+
 export default class Footer extends React.Component {
+
+    onSubmit(e) {
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: "POST",
+            url: "/contact",
+            data: $("#contact").serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                console.log(data); // show response from the php script.
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    }
 
     render() {
         return (
@@ -9,7 +25,7 @@ export default class Footer extends React.Component {
                     <div className="row footer-container">
                         <div className="col-xs-12 col-sm-8">
                             <h5>Contact</h5>
-                            <form>
+                            <form id="contact">
                                 <div className="form-group">
                                     <input type="email" className="form-control" name="contact_email" placeholder="Email" />
                                 </div>
@@ -22,7 +38,7 @@ export default class Footer extends React.Component {
 
                                 <input type="hidden" name="contact_hp" />
 
-                                <button type="submit" className="btn btn-primary">Envoyer</button>
+                                <button type="submit" className="btn btn-primary" onClick={this.onSubmit.bind(this)}>Envoyer</button>
                             </form>
                         </div>
                         <div className="col-xs-12 col-sm-4 col-md-4">

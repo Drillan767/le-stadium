@@ -4,7 +4,7 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <nav className="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+            <nav className="navbar fixed-top navbar-expand-md navbar-dark bg-dark" id="header">
                 <a href="/" className="navbar-brand">Le Stadium</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
                     <span className="navbar-toggler-icon" />

@@ -104,12 +104,12 @@
             </div>
 
             <div class="input-field col s6 offset-s3">
-                <input id="hours" type="text" name="hours" class="validate" />
+                <textarea id="hours" name="hours" class="materialize-textarea"></textarea>
                 <label for="hours">Horaires</label>
             </div>
 
             <div class="input-field col s6 offset-s3">
-                <input id="location" name="location" type="text" class="validate" />
+                <textarea id="location" name="location" class="materialize-textarea"></textarea>
                 <label for="location">Adresse</label>
             </div>
 

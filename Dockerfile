@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
 WORKDIR /var/www/html
 ADD --chown=www-data:www-data  . /var/www/html
 RUN apt-get update && apt-get install curl gnupg libmcrypt-dev zip unzip -y
@@ -12,4 +12,4 @@ RUN composer install  --no-interaction --optimize-autoloader --no-dev --prefer-d
 USER root
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
 RUN apt-get update && apt-get install -y nodejs
-RUN npm install && npm run production
+RUN npm install && npm run development

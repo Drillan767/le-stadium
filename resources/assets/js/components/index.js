@@ -39,7 +39,7 @@ export default class Stadium extends React.Component {
                     <About image={data.background_description} description={data.description}/>
                     <Gallery images={data.pictures}/>
                     <Gmaps gmapskey={data.g_map_key} />
-                    <Footer />
+                    <Footer address={data.location} hours={data.hours} />
                 </main>
 
             </React.Fragment>

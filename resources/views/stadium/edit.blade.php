@@ -63,12 +63,12 @@
             </div>
 
             <div class="input-field col s6 offset-s3">
-                <input id="hours" type="text" name="hours" class="validate" value="{{ $stadium->hours }}">
+                <textarea id="hours" name="hours" class="materialize-textarea">{{ strip_tags($stadium->hours) }}</textarea>
                 <label for="hours">Horaires</label>
             </div>
 
             <div class="input-field col s6 offset-s3">
-                <input id="location" name="location" type="text" class="validate" value="{{ $stadium->location }}">
+                <textarea id="location" name="location" class="materialize-textarea">{{ strip_tags($stadium->location) }}</textarea>
                 <label for="location">Adresse</label>
             </div>
 

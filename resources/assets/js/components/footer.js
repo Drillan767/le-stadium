@@ -46,12 +46,17 @@ export default class Footer extends React.Component {
     }
 
     render() {
-        const {contact_email, contact_hp, contact_message, contact_object} = this.state;
+        const {contact_email, contact_hp, contact_message, contact_object, contact_name} = this.state;
+        const { hours, address } = this.props;
 
         return (
             <footer className="footer row" id="contact">
                 <div className="container">
                     <div className="row footer-container">
+                        <div className="col-xs-12 col-sm-2 col-md-2 coordinates">
+                            <p dangerouslySetInnerHTML={{__html: hours.replace(/(?:\r\n|\r|\n)/g, '<br />')}} />
+                            <p dangerouslySetInnerHTML={{__html: address.replace(/(?:\r\n|\r|\n)/g, '<br />')}} />
+                        </div>
                         <div className="col-xs-12 col-sm-8">
                             <h5>Contact</h5>
                             <form id="contact">
@@ -61,7 +66,7 @@ export default class Footer extends React.Component {
                                         className="form-control"
                                         name="contact_email"
                                         placeholder="Email"
-                                        value={this.state.contact_email}
+                                        value={contact_email}
                                         onChange={this.handleChange}
                                     />
                                 </div>
@@ -71,7 +76,7 @@ export default class Footer extends React.Component {
                                         className="form-control"
                                         name="contact_name"
                                         placeholder="Nom, prénom"
-                                        value={this.state.contact_name}
+                                        value={contact_name}
                                         onChange={this.handleChange}
                                     />
                                 </div>
@@ -81,7 +86,7 @@ export default class Footer extends React.Component {
                                         className="form-control"
                                         name="contact_object"
                                         placeholder="Objet"
-                                        value={this.state.contact_object}
+                                        value={contact_object}
                                         onChange={this.handleChange}
                                     />
                                 </div>
@@ -91,7 +96,7 @@ export default class Footer extends React.Component {
                                         rows="3"
                                         name="contact_message"
                                         placeholder="Message..."
-                                        value={this.state.contact_message}
+                                        value={contact_message}
                                         onChange={this.handleChange}
                                     />
                                 </div>
@@ -99,14 +104,14 @@ export default class Footer extends React.Component {
                                 <input
                                     type="hidden"
                                     name="contact_hp"
-                                    value={this.state.contact_hp}
+                                    value={contact_hp}
                                     onChange={this.handleChange}
                                 />
 
                                 <button type="submit" className="btn" onClick={this.onSubmit.bind(this)}>Envoyer</button>
                             </form>
                         </div>
-                        <div className="col-xs-12 col-sm-4 col-md-4">
+                        <div className="col-xs-12 col-sm-2 col-md-2">
                             <ul className="list-unstyled quicklinks">
                                 <li><a href="#">Accueil</a></li>
                                 <li><a href="#">Menu</a></li>

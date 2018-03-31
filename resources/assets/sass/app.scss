@@ -106,7 +106,7 @@ section .section-title {
   text-transform: uppercase;
 }
 
-#gallery {
+#gallerie {
   margin-right: -15px;
   margin-left: -15px;
 
@@ -123,6 +123,12 @@ section .section-title {
 
   .footer-container {
     margin: 5vh 0;
+
+    .coordinates {
+      padding-top: 3vh;
+      font-weight: 900;
+      color: $grey;
+    }
 
     form {
       button {

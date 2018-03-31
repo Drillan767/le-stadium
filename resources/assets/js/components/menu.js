@@ -48,5 +48,3 @@ export default class Menu extends React.Component {
         )
     }
 }
-
-// https://themeofthecrop.com/2014/07/31/achieve-complex-menu-layouts-food-drink-menu/

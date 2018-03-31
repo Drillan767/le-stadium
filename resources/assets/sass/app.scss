@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Roboto', 'sans-serif';
+  transition:         all 600ms ease-in-out;
 }
 
 h1, h5 {
@@ -138,16 +139,18 @@ section .section-title {
       margin-top: 24px;
       text-align: right;
 
-      a {
-        color: $grey;
-        font-weight: 900;
-        font-size: 20px;
-        display: block;
-        margin-bottom: 15px;
+      li {
+        margin-bottom: 20px;
 
-        &:hover {
-          text-decoration: none;
-          color: $pink;
+        a {
+          color: $grey;
+          font-weight: 900;
+          font-size: 25px;
+
+          &:hover {
+            text-decoration: none;
+            color: $pink;
+          }
         }
       }
     }

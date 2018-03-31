@@ -10,6 +10,7 @@ export default class Footer extends React.Component {
         this.state = {
             contact_email: '',
             contact_object: '',
+            contact_name: '',
             contact_hp: '',
             contact_message: ''
         };
@@ -30,9 +31,10 @@ export default class Footer extends React.Component {
             url: "/contact",
             data: {
                 'contact_email': this.state.contact_object,
+                'contact_name': this.state.contact_name,
                 'contact_hp': this.state.contact_hp,
-                'contact_message': this.state.contact_object,
-                'contact_object': this.state.contact_object,
+                'contact_message': this.state.contact_message,
+                'contact_object': this.state.contact_email,
             },
             success: function(data){
 
@@ -65,7 +67,17 @@ export default class Footer extends React.Component {
                                 </div>
                                 <div className="form-group">
                                     <input
-                                        type="email"
+                                        type="text"
+                                        className="form-control"
+                                        name="contact_name"
+                                        placeholder="Nom, prénom"
+                                        value={this.state.contact_name}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
                                         className="form-control"
                                         name="contact_object"
                                         placeholder="Objet"

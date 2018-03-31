@@ -18,7 +18,7 @@ export default class Header extends React.Component {
                             <a className="nav-link" href="#menu">Menu</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Présentation</a>
+                            <a className="nav-link" href="#presentation">Présentation</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#gallerie">Gallerie</a>

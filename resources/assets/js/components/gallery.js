@@ -6,7 +6,7 @@ export default class Gallery extends React.Component {
     render() {
         const { images } = this.props;
         return (
-            <div id="gallery">
+            <div id="gallerie">
                 {
                     images !== null &&
                     images.map(function(pic, i) {

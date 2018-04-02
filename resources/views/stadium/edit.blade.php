@@ -46,6 +46,71 @@
                 </div>
             </div>
 
+            <div class="col s6 offset-s3">
+                <h5>Menu du jour</h5>
+
+                <div class="input-field col s9">
+                    <input id="today_special" name="today_special" type="text" value="{{ $stadium->today_special }}"/>
+                    <label for="today_special">Nom</label>
+                </div>
+                <div class="input-field col s3">
+                    <input id="today_price" name="today_price" type="text" value="{{ $stadium->today_price }}" />
+                    <label for="today_price">Prix</label>
+                </div>
+            </div>
+
+            <div class="col s6 offset-s3">
+                <h5>Menus</h5>
+                <table class="responsive-table">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Catégorie</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="dish_field">
+                    @foreach($stadium->dishes as $dish)
+                        <tr>
+                            <td width="60%">
+                                <input type="text" name="name[]" placeholder="Nom" class="form-control name_list" value="{{$dish->name }}"/>
+                            </td>
+                            <td width="10%">
+                                <input type="text" name="price[]" placeholder="Prix" class="form-control name_list" value="{{$dish->price }}"/>
+                            </td>
+                            <td width="20%">
+                                <select name="category[]">
+                                    <option value="salade" {{ $dish->category === 'salade' ? 'selected' : '' }}>Salade</option>
+                                    <option value="plat" {{ $dish->category === 'plat' ? 'selected' : '' }}>Plat</option>
+                                    <option value="dessert" {{ $dish->category === 'dessert' ? 'selected' : '' }}>Dessert</option>
+                                </select>
+                            </td>
+                        </tr>
+                    @endforeach
+                    <tr>
+                        <td width="60%">
+                            <input type="text" name="name[]" placeholder="Nom" class="form-control name_list"/>
+                        </td>
+                        <td width="10%">
+                            <input type="text" name="price[]" placeholder="Prix" class="form-control name_list"/>
+                        </td>
+                        <td width="20%">
+                            <select name="category[]">
+                                <option value="salade">Salade</option>
+                                <option value="plat">Plat</option>
+                                <option value="dessert">Dessert</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="button" name="add" id="add_dish" class="btn btn-success">Ajouter</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="file-field input-field col s6 offset-s3">
                 <div class="btn">
                     <span>Fichier</span>

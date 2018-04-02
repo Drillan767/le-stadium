@@ -52,6 +52,18 @@ class StadiumController extends Controller {
       }
     }
 
+    if($request->name) {
+      $stadium->dishes()->delete();
+      foreach($request->name as $key => $value) {
+        $stadium->dishes()->create([
+          'name' => $value,
+          'price' => $request->price[$key],
+          'category' => $request->category[$key]
+        ]);
+      }
+    }
+
+
     return redirect('/admin')->with('success', 'Enregistré');
   }
 

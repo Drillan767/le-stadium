@@ -4,19 +4,14 @@ services:
     build: .
     env_file:
       - .env.docker
-    depends_on:
+    links:
       - db
     ports:
-      - '80:80'
+      - '8000:80'
   db:
     image: mariadb:latest
     restart: always
     env_file:
       - .env.mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: $${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: $${MYSQL_DATABASE}
-      MYSQL_USER: $${MYSQL_USER}
-      MYSQL_PASSWORD: $${MYSQL_PASSWORD}
     ports:
       - 3306

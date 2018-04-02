@@ -113,11 +113,11 @@ export default class Footer extends React.Component {
                         </div>
                         <div className="col-xs-12 col-sm-2 col-md-2">
                             <ul className="list-unstyled quicklinks">
-                                <li><a href="#">Accueil</a></li>
-                                <li><a href="#">Menu</a></li>
-                                <li><a href="#">Présentation</a></li>
-                                <li><a href="#">Gallerie</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#accueil">Accueil</a></li>
+                                <li><a href="#menu">Menu</a></li>
+                                <li><a href="#presentation">Présentation</a></li>
+                                <li><a href="#gallerie">Gallerie</a></li>
+                                <li><a href="#contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>

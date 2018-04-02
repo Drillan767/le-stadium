@@ -63,7 +63,6 @@ class StadiumController extends Controller {
       }
     }
 
-
     return redirect('/admin')->with('success', 'Enregistré');
   }
 

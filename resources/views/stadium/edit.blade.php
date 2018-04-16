@@ -21,7 +21,7 @@
             </div>
         @endif
         {!! Form::open(['url' => '/admin/edit', 'files' => true, 'class' => 'col s12']) !!}
-            <div class="file-field input-field col s6 offset-s3">
+            <div class="file-field input-field col s12 m6 offset-m3">
                 <div class="btn">
                     <span>Fichier</span>
                     <input type="file" name="landing_image">
@@ -31,11 +31,11 @@
                     <span class="helper-text" data-error="wrong" data-success="right">{{ basename($stadium->landing_image) }}</span>
                 </div>
             </div>
-            <div class="input-field col s6 offset-s3">
+            <div class="input-field col s12 m6 offset-m3">
                 <input id="g_map_key" name="g_map_key" type="text" class="validate" value="{{ $stadium->g_map_key }}">
                 <label for="g_map_key">Clé pour Google Maps</label>
             </div>
-            <div class="file-field input-field col s6 offset-s3">
+            <div class="file-field input-field col s12 m6 offset-m3">
                 <div class="btn">
                     <span>Fichier</span>
                     <input type="file" name="logo">
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="col s6 offset-s3">
+            <div class="col s12 m6 offset-m3">
                 <h5>Menu du jour</h5>
 
                 <div class="input-field col s9">
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="col s6 offset-s3">
+            <div class="col s12 m6 offset-m3">
                 <h5>Menus</h5>
                 <table class="responsive-table">
                     <thead>
@@ -111,7 +111,7 @@
                 </table>
             </div>
 
-            <div class="file-field input-field col s6 offset-s3">
+            <div class="file-field input-field col s12 m6 offset-m3">
                 <div class="btn">
                     <span>Fichier</span>
                     <input type="file" name="background_description">
@@ -122,22 +122,22 @@
                 </div>
             </div>
 
-            <div class="input-field col s6 offset-s3">
+            <div class="input-field col s12 m6 offset-m3">
                 <textarea id="description" name="description" class="materialize-textarea">{{ strip_tags($stadium->description) }}</textarea>
                 <label for="description">Description</label>
             </div>
 
-            <div class="input-field col s6 offset-s3">
+            <div class="input-field col s12 m6 offset-m3">
                 <textarea id="hours" name="hours" class="materialize-textarea">{{ strip_tags($stadium->hours) }}</textarea>
                 <label for="hours">Horaires</label>
             </div>
 
-            <div class="input-field col s6 offset-s3">
+            <div class="input-field col s12 m6 offset-m3">
                 <textarea id="location" name="location" class="materialize-textarea">{{ strip_tags($stadium->location) }}</textarea>
                 <label for="location">Adresse</label>
             </div>
 
-            <div class="file-field input-field col s6 offset-s3">
+            <div class="file-field input-field col s12 m6 offset-m3">
                 <div class="btn">
                     <span>Fichiers</span>
                     <input type="file" name="gallery[]"  multiple>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <table class="responsive-table col s6 offset-s3">
+            <table class="responsive-table col s12 m6 offset-m3">
                 <thead>
                 <tr>
                     <th>Fichier</th>

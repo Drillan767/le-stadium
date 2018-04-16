@@ -13383,7 +13383,7 @@ module.exports = __webpack_require__(44);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
@@ -13397,7 +13397,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 1000);
+});
+
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components__["a" /* default */], null), document.getElementById('index'));
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 13 */
@@ -30822,7 +30831,7 @@ var Stadium = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__about__["a" /* default */], { image: data.background_description, description: data.description }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__gallery__["a" /* default */], { images: data.pictures }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__g_maps__["a" /* default */], { gmapskey: data.g_map_key }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__footer__["a" /* default */], null)
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__footer__["a" /* default */], { address: data.location, hours: data.hours })
                 )
             );
         }
@@ -30864,7 +30873,7 @@ var Header = function (_React$Component) {
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "nav",
-                { className: "navbar fixed-top navbar-expand-md navbar-dark bg-dark" },
+                { className: "navbar fixed-top navbar-expand-md navbar-dark bg-dark", id: "header" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "a",
                     { href: "/", className: "navbar-brand" },
@@ -30904,7 +30913,7 @@ var Header = function (_React$Component) {
                             { className: "nav-item" },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 "a",
-                                { className: "nav-link", href: "#" },
+                                { className: "nav-link", href: "#presentation" },
                                 "Pr\xE9sentation"
                             )
                         ),
@@ -31079,9 +31088,6 @@ var Menu = function (_React$Component) {
 
     return Menu;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-// https://themeofthecrop.com/2014/07/31/achieve-complex-menu-layouts-food-drink-menu/
-
 
 /* harmony default export */ __webpack_exports__["a"] = (Menu);
 
@@ -31475,7 +31481,7 @@ var Gallery = function (_React$Component) {
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { id: 'gallery' },
+                { id: 'gallerie' },
                 images !== null && images.map(function (pic, i) {
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__picture__["a" /* default */], { key: i, img: pic.path, width: i % 3 === 0 ? 12 : 6 });
                 })
@@ -31592,9 +31598,11 @@ var Gmaps = function (_React$Component) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -31604,115 +31612,205 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+// https://stackoverflow.com/questions/43645142/submit-form-in-react-js-using-ajax
+
 var Footer = function (_React$Component) {
     _inherits(Footer, _React$Component);
 
-    function Footer() {
+    function Footer(props) {
         _classCallCheck(this, Footer);
 
-        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+
+        _this.state = {
+            contact_email: '',
+            contact_object: '',
+            contact_name: '',
+            contact_hp: '',
+            contact_message: ''
+        };
+
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
     }
 
     _createClass(Footer, [{
-        key: "render",
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState(_defineProperty({}, e.target.name, e.target.value));
+        }
+    }, {
+        key: 'onSubmit',
+        value: function onSubmit(e) {
+            $.ajax({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                type: "POST",
+                url: "/contact",
+                data: {
+                    'contact_email': this.state.contact_object,
+                    'contact_name': this.state.contact_name,
+                    'contact_hp': this.state.contact_hp,
+                    'contact_message': this.state.contact_message,
+                    'contact_object': this.state.contact_email
+                },
+                success: function success(data) {
+
+                    console.log(data);
+                }
+            });
+
+            e.preventDefault();
+        }
+    }, {
+        key: 'render',
         value: function render() {
+            var _state = this.state,
+                contact_email = _state.contact_email,
+                contact_hp = _state.contact_hp,
+                contact_message = _state.contact_message,
+                contact_object = _state.contact_object,
+                contact_name = _state.contact_name;
+            var _props = this.props,
+                hours = _props.hours,
+                address = _props.address;
+
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "footer",
-                { className: "footer row", id: "contact" },
+                'footer',
+                { className: 'footer row', id: 'contact' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "container" },
+                    'div',
+                    { className: 'container' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "row footer-container" },
+                        'div',
+                        { className: 'row footer-container' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "div",
-                            { className: "col-xs-12 col-sm-8" },
+                            'div',
+                            { className: 'col-xs-12 col-sm-2 col-md-2 coordinates' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { dangerouslySetInnerHTML: { __html: hours.replace(/(?:\r\n|\r|\n)/g, '<br />') } }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { dangerouslySetInnerHTML: { __html: address.replace(/(?:\r\n|\r|\n)/g, '<br />') } })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'col-xs-12 col-sm-8' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "h5",
+                                'h5',
                                 null,
-                                "Contact"
+                                'Contact'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "form",
-                                null,
+                                'form',
+                                { id: 'contact' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "div",
-                                    { className: "form-group" },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "email", className: "form-control", name: "contact_email", placeholder: "Email" })
+                                    'div',
+                                    { className: 'form-group' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                                        type: 'email',
+                                        className: 'form-control',
+                                        name: 'contact_email',
+                                        placeholder: 'Email',
+                                        value: contact_email,
+                                        onChange: this.handleChange
+                                    })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "div",
-                                    { className: "form-group" },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "email", className: "form-control", name: "contact_objet", placeholder: "Objet" })
+                                    'div',
+                                    { className: 'form-group' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                                        type: 'text',
+                                        className: 'form-control',
+                                        name: 'contact_name',
+                                        placeholder: 'Nom, pr\xE9nom',
+                                        value: contact_name,
+                                        onChange: this.handleChange
+                                    })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "div",
-                                    { className: "form-group" },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { className: "form-control", rows: "3", placeholder: "Message..." })
+                                    'div',
+                                    { className: 'form-group' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                                        type: 'text',
+                                        className: 'form-control',
+                                        name: 'contact_object',
+                                        placeholder: 'Objet',
+                                        value: contact_object,
+                                        onChange: this.handleChange
+                                    })
                                 ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "hidden", name: "contact_hp" }),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "button",
-                                    { type: "submit", className: "btn btn-primary" },
-                                    "Envoyer"
+                                    'div',
+                                    { className: 'form-group' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+                                        className: 'form-control',
+                                        rows: '3',
+                                        name: 'contact_message',
+                                        placeholder: 'Message...',
+                                        value: contact_message,
+                                        onChange: this.handleChange
+                                    })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                                    type: 'hidden',
+                                    name: 'contact_hp',
+                                    value: contact_hp,
+                                    onChange: this.handleChange
+                                }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'button',
+                                    { type: 'submit', className: 'btn', onClick: this.onSubmit.bind(this) },
+                                    'Envoyer'
                                 )
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "div",
-                            { className: "col-xs-12 col-sm-4 col-md-4" },
+                            'div',
+                            { className: 'col-xs-12 col-sm-2 col-md-2' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "h5",
-                                null,
-                                "Quick links"
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "ul",
-                                { className: "list-unstyled quick-links" },
+                                'ul',
+                                { className: 'list-unstyled quicklinks' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "li",
+                                    'li',
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        "a",
-                                        { href: "#" },
-                                        "Accueil"
+                                        'a',
+                                        { href: '#accueil' },
+                                        'Accueil'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "li",
+                                    'li',
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        "a",
-                                        { href: "#" },
-                                        "Menu"
+                                        'a',
+                                        { href: '#menu' },
+                                        'Menu'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "li",
+                                    'li',
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        "a",
-                                        { href: "#" },
-                                        "Pr\xE9sentation"
+                                        'a',
+                                        { href: '#presentation' },
+                                        'Pr\xE9sentation'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "li",
+                                    'li',
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        "a",
-                                        { href: "#" },
-                                        "Gallerie"
+                                        'a',
+                                        { href: '#gallerie' },
+                                        'Gallerie'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "li",
+                                    'li',
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        "a",
-                                        { href: "#" },
-                                        "Contact"
+                                        'a',
+                                        { href: '#contact' },
+                                        'Contact'
                                     )
                                 )
                             )
@@ -31727,6 +31825,7 @@ var Footer = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Footer);
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 42 */

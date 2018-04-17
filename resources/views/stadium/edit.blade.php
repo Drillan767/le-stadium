@@ -72,8 +72,8 @@
                     </thead>
 
                     <tbody id="dish_field">
-                    @foreach($stadium->dishes as $dish)
-                        <tr>
+                    @foreach($stadium->dishes as $id => $dish)
+                        <tr id="row{{ $id }}">
                             <td width="60%">
                                 <input type="text" name="name[]" placeholder="Nom" class="form-control name_list" value="{{$dish->name }}"/>
                             </td>
@@ -86,6 +86,9 @@
                                     <option value="plat" {{ $dish->category === 'plat' ? 'selected' : '' }}>Plat</option>
                                     <option value="dessert" {{ $dish->category === 'dessert' ? 'selected' : '' }}>Dessert</option>
                                 </select>
+                            </td>
+                            <td>
+                                <button class="btn waves-effect waves-light red btn_remove" name="remove" type="button" id="{{ $id }}">X</button>
                             </td>
                         </tr>
                     @endforeach

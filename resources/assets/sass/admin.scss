@@ -19,11 +19,9 @@ nav, .btn {
   max-width: 100%;
 }
 
-table {
-    tr {
-      td:last-child, th:last-child {
-        float: right;
-        margin-right: 2vw;
-      }
+table thead, tbody:not(#dish_field) tr {
+  td:last-child, th:last-child {
+    float: right;
+    margin-right: 2vw;
   }
 }

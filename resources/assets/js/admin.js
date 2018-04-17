@@ -10,10 +10,9 @@ $(document).ready(function(){
 
     $('select').formSelect();
 
-    let i=1;
+    let i = $('#dish_field tr').length;
 
     $('#add_dish').click(function(){
-        i++;
         $('#dish_field').append(
             '<tr id="row'+i+'" class="dynamic-added">' +
                 '<td>' +
@@ -37,11 +36,12 @@ $(document).ready(function(){
         );
 
         $('select').formSelect();
+        i++;
     });
 
-    $(document).on('click', '.btn_remove', function(){
+    $(document).on('click', '.btn_remove', function(e){
         let button_id = $(this).attr("id");
-        $('#row'+button_id+'').remove();
+        $('#row'+button_id).remove();
     });
 
     $('.modal-trigger').click(function() {

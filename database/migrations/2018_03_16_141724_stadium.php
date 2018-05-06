@@ -16,7 +16,6 @@ class Stadium extends Migration
         Schema::create('stadium', function (Blueprint $table) {
             $table->increments('id');
             $table->string('landing_image');
-            $table->string('logo');
             $table->string('g_map_key');
             $table->string('background_description');
             $table->string('today_special');

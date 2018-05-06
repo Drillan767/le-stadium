@@ -5,7 +5,7 @@ export default class Landing extends React.Component {
         const { image, logo } = this.props;
         return (
             <div id="accueil" style={{backgroundImage: `url(${image}`}} className="row">
-                <img src={logo} className="logo" alt="logo"/>
+                <h1 className="logo">LE STADIUM</h1>
             </div>
         )
     }

@@ -11,7 +11,10 @@ services:
   db:
     image: mariadb:latest
     restart: always
-    env_file:
-      - .env.mysql
+    environment:
+      MYSQL_USER: stadium
+      MYSQL_DATABASE: stadium
+      MYSQL_PASSWORD: 3p1c_P@ssw0rd
+      MYSQL_ROOT_PASSWORD: 3p1c_P@ssw0rd
     ports:
       - 3306

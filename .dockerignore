@@ -4,6 +4,5 @@ public/js
 /public/storage
 /vendor
 /.idea
-.env*
-!.env.example
+.env
 storage/app/public/

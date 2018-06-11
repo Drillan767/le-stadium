@@ -30988,7 +30988,11 @@ var Landing = function (_React$Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "div",
                 { id: "accueil", style: { backgroundImage: "url(" + image }, className: "row" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: logo, className: "logo", alt: "logo" })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "h1",
+                    { className: "logo" },
+                    "LE STADIUM"
+                )
             );
         }
     }]);
@@ -31642,16 +31646,17 @@ var Footer = function (_React$Component) {
     }, {
         key: 'onSubmit',
         value: function onSubmit(e) {
+            e.preventDefault();
             $.ajax({
                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                 type: "POST",
                 url: "/contact",
                 data: {
-                    'contact_email': this.state.contact_object,
+                    'contact_email': this.state.contact_email,
                     'contact_name': this.state.contact_name,
                     'contact_hp': this.state.contact_hp,
                     'contact_message': this.state.contact_message,
-                    'contact_object': this.state.contact_email
+                    'contact_object': this.state.contact_object
                 },
                 success: function success(data) {
 
@@ -31708,6 +31713,7 @@ var Footer = function (_React$Component) {
                                         type: 'email',
                                         className: 'form-control',
                                         name: 'contact_email',
+                                        autoComplete: 'off',
                                         placeholder: 'Email',
                                         value: contact_email,
                                         onChange: this.handleChange
@@ -31719,6 +31725,7 @@ var Footer = function (_React$Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
                                         type: 'text',
                                         className: 'form-control',
+                                        autoComplete: 'off',
                                         name: 'contact_name',
                                         placeholder: 'Nom, pr\xE9nom',
                                         value: contact_name,
@@ -31730,6 +31737,7 @@ var Footer = function (_React$Component) {
                                     { className: 'form-group' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
                                         type: 'text',
+                                        autoComplete: 'off',
                                         className: 'form-control',
                                         name: 'contact_object',
                                         placeholder: 'Objet',
@@ -31746,11 +31754,13 @@ var Footer = function (_React$Component) {
                                         name: 'contact_message',
                                         placeholder: 'Message...',
                                         value: contact_message,
-                                        onChange: this.handleChange
+                                        onChange: this.handleChange,
+                                        autoComplete: 'off'
                                     })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
                                     type: 'hidden',
+                                    autoComplete: 'off',
                                     name: 'contact_hp',
                                     value: contact_hp,
                                     onChange: this.handleChange

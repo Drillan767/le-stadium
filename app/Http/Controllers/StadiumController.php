@@ -36,7 +36,7 @@ class StadiumController extends Controller {
 			'location' => $request['location'],
 		];
 
-		foreach (['landing_image', 'logo', 'background_description'] as $field) {
+		foreach (['landing_image', 'background_description'] as $field) {
 			if (!empty($request->$field)) {
 				$data[$field] = $this->uploadFile($request->$field, $field);
 			}
@@ -87,7 +87,6 @@ class StadiumController extends Controller {
 
 		$stadium->landing_image = $this->uploadFile($request->landing_image, 'landing_page');
 		$stadium->g_map_key = $request->g_map_key;
-		$stadium->logo = $this->uploadFile($request->logo, 'logo');
 		$stadium->background_description = $this->uploadFile($request->background_description, 'background_description');
 		$stadium->description = nl2br($request->description);
 		$stadium->hours = $request->hours;

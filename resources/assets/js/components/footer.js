@@ -25,16 +25,17 @@ export default class Footer extends React.Component {
     }
 
     onSubmit(e) {
+        e.preventDefault();
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: "POST",
             url: "/contact",
             data: {
-                'contact_email': this.state.contact_object,
+                'contact_email': this.state.contact_email,
                 'contact_name': this.state.contact_name,
                 'contact_hp': this.state.contact_hp,
                 'contact_message': this.state.contact_message,
-                'contact_object': this.state.contact_email,
+                'contact_object': this.state.contact_object,
             },
             success: function(data){
 
@@ -65,6 +66,7 @@ export default class Footer extends React.Component {
                                         type="email"
                                         className="form-control"
                                         name="contact_email"
+                                        autoComplete="off"
                                         placeholder="Email"
                                         value={contact_email}
                                         onChange={this.handleChange}
@@ -74,6 +76,7 @@ export default class Footer extends React.Component {
                                     <input
                                         type="text"
                                         className="form-control"
+                                        autoComplete="off"
                                         name="contact_name"
                                         placeholder="Nom, prénom"
                                         value={contact_name}
@@ -83,6 +86,7 @@ export default class Footer extends React.Component {
                                 <div className="form-group">
                                     <input
                                         type="text"
+                                        autoComplete="off"
                                         className="form-control"
                                         name="contact_object"
                                         placeholder="Objet"
@@ -98,11 +102,13 @@ export default class Footer extends React.Component {
                                         placeholder="Message..."
                                         value={contact_message}
                                         onChange={this.handleChange}
+                                        autoComplete="off"
                                     />
                                 </div>
 
                                 <input
                                     type="hidden"
+                                    autoComplete="off"
                                     name="contact_hp"
                                     value={contact_hp}
                                     onChange={this.handleChange}

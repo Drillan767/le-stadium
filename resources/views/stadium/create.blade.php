@@ -30,15 +30,6 @@
                 <input id="g_map_key" name="g_map_key" type="text" class="validate" />
                 <label for="g_map_key">Clé pour Google Maps</label>
             </div>
-            <div class="file-field input-field col s12 m6 offset-m3">
-                <div class="btn">
-                    <span>Fichier</span>
-                    <input type="file" name="logo" />
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Logo" />
-                </div>
-            </div>
 
             <div class="file-field input-field col s12 m6 offset-m3">
                 <div class="btn">

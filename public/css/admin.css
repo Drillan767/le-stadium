@@ -30,8 +30,10 @@ nav,
   max-width: 100%;
 }
 
-table tr td:last-child,
-table tr th:last-child {
+table thead td:last-child,
+table thead th:last-child,
+tbody:not(#dish_field) tr td:last-child,
+tbody:not(#dish_field) tr th:last-child {
   float: right;
   margin-right: 2vw;
 }

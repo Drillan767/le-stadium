@@ -2,10 +2,8 @@
 public/css
 public/js
 /public/storage
-/storage/*.key
 /vendor
 /.idea
-npm-debug.log
 .env*
 !.env.example
 storage/app/public/

@@ -35,16 +35,6 @@
                 <input id="g_map_key" name="g_map_key" type="text" class="validate" value="{{ $stadium->g_map_key }}">
                 <label for="g_map_key">Clé pour Google Maps</label>
             </div>
-            <div class="file-field input-field col s12 m6 offset-m3">
-                <div class="btn">
-                    <span>Fichier</span>
-                    <input type="file" name="logo">
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Logo" >
-                    <span class="helper-text" data-error="wrong" data-success="right">{{ basename($stadium->logo) }}</span>
-                </div>
-            </div>
 
             <div class="col s12 m6 offset-m3">
                 <h5>Menu du jour</h5>

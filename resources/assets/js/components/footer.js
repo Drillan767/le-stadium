@@ -1,7 +1,5 @@
 import React from 'react';
 
-// https://stackoverflow.com/questions/43645142/submit-form-in-react-js-using-ajax
-
 export default class Footer extends React.Component {
 
     constructor(props) {
@@ -25,7 +23,6 @@ export default class Footer extends React.Component {
     }
 
     onSubmit(e) {
-        e.preventDefault();
         $.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: "POST",
@@ -38,8 +35,15 @@ export default class Footer extends React.Component {
                 'contact_object': this.state.contact_object,
             },
             success: function(data){
-
-                console.log(data);
+                if(data === 'Queued. Thank you.') {
+                    $('form').prepend('<div class="alert alert-sucess alert-dismissible fade show" role="alert">\n' +
+                        '  <strong>Message envoyé avec succès !</strong>\n' +
+                        '  <button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+                        '    <span aria-hidden="true">&times;</span>\n' +
+                        '  </button>\n' +
+                        '</div>')
+                        .find("input[type=text], input[type=email], textarea").val("");
+                }
             }
         });
 

@@ -61,12 +61,13 @@ class HomeController extends Controller {
         'subject' => 'Nouveau contact depuis le site !',
         'html'    => $body
       ));
-    }
 
-    if(empty($result)) {
-      response()->json('done');
+      $response = print_r($result->http_response_body->message);
+
+      response()->json($response);
+
     } else {
-      response()->json($result);
+      response()->json('hp');
     }
   }
 }

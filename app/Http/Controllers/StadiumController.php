@@ -115,7 +115,7 @@ class StadiumController extends Controller {
 
 	public function removeFromGallery($id) {
 		Stadium::with('pictures')->find(1)->pictures()->where('id', $id)->delete();
-		return response()->json('Supprimé');
+		return response()->json('done');
 	}
 
 	private function uploadFile($file, $destination) {

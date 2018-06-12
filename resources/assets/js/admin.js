@@ -55,7 +55,7 @@ $(document).ready(function(){
         let $tr = $(this).closest('tr'),
             id = $(this).attr('data-content');
         $.post("/admin/gallery/delete/" + $(this).attr('data-content'), function(data){
-            if(data === 'supprimé') {
+            if(data === 'done') {
                 document.getElementById(id).remove();
                 $tr.find('td').fadeOut(1000,function() {
                     $tr.remove();
